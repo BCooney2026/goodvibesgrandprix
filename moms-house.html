@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mom's House of Phoenixville — Why We Race · Good Vibes Grand Prix</title>
+<meta name="description" content="Meet Mom's House of Phoenixville — free, state-licensed childcare for single parents finishing their education. 100% of Good Vibes Grand Prix net proceeds benefit Mom's House.">
+<meta property="og:title" content="Why We Race: Mom's House of Phoenixville">
+<meta property="og:description" content="Free childcare for single parents attending school full time — since 1987. 100% of Good Vibes Grand Prix net proceeds benefit Mom's House.">
+<meta property="og:image" content="https://goodvibesgrandprix.com/assets/poster.jpg">
+<meta property="og:url" content="https://goodvibesgrandprix.com/moms-house.html">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#001830">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:ital,wght@0,400;0,600;1,400&family=Bebas+Neue&family=Anton&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001830; --navy-2:#002845; --ink:#0A0A0C;
+  --orange:#E05A00; --orange-hi:#F07A1A; --red:#C01800;
+  --cream:#F0D8A8; --cream-2:#F5E8CC; --gold:#D8C090;
+  --line:rgba(240,216,168,.28);
+  --shadow:0 18px 50px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;color:var(--cream);line-height:1.6;overflow-x:hidden;background:var(--navy)}
+#bg-scroll{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#001830 0%,#002845 30%,#0b2038 55%,#3a1c0a 85%,#0A0A0C 100%)}
+#bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1200px 600px at 50% var(--glow-y,20%),rgba(224,90,0,.14),transparent 60%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.045;background-image:radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 1px),radial-gradient(circle at 70% 60%,#fff 0 1px,transparent 1px),radial-gradient(circle at 40% 80%,#000 0 1px,transparent 1px);background-size:7px 7px,11px 11px,13px 13px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.checker{height:16px;width:100%;background:conic-gradient(var(--ink) 90deg,transparent 90deg 180deg,var(--ink) 180deg 270deg,transparent 270deg) 0 0/32px 32px,var(--cream);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:2}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(0,10,24,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1120px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:12px;font-family:'Anton',sans-serif;letter-spacing:.5px;font-size:1.05rem;color:var(--cream);text-decoration:none;text-transform:uppercase}
+.nav-brand img{height:50px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--cream);text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.82;transition:opacity .2s,color .2s}
+.nav-links a:hover{opacity:1;color:var(--orange-hi)}
+.nav-cta{background:var(--orange);color:#fff !important;padding:9px 18px;border-radius:2px;opacity:1 !important;box-shadow:0 3px 0 #8f3800}
+.nav-toggle{display:none;background:none;border:0;color:var(--cream);font-size:1.6rem;cursor:pointer}
+@media(max-width:860px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--navy-2);padding:18px 24px;gap:18px;border-bottom:2px solid var(--orange)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+.hero{padding:64px 0 44px;text-align:center;position:relative;z-index:2}
+.crumb{font-family:'Oswald',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:.75rem;color:var(--gold);margin-bottom:18px}
+.crumb a{color:var(--orange-hi);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+.sec-label{font-family:'Bebas Neue',sans-serif;letter-spacing:5px;color:var(--orange-hi);font-size:1.1rem;margin-bottom:10px}
+h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1;color:var(--cream-2);text-shadow:3px 3px 0 var(--red),6px 6px 0 rgba(0,0,0,.4)}
+.hero .sub{font-family:'Oswald',sans-serif;letter-spacing:2px;text-transform:uppercase;font-size:1rem;margin-top:16px;color:var(--cream)}
+/* logo lockup — swaps to real logo when assets/momshouse-logo.png exists */
+.mh-lockup{margin:34px auto 0;max-width:420px;background:var(--cream-2);border-radius:10px;padding:30px 26px;box-shadow:var(--shadow);position:relative}
+.mh-lockup img.real{width:100%;height:auto;display:block}
+.mh-fallback{display:flex;flex-direction:column;align-items:center;gap:8px}
+.mh-house{width:64px;height:64px}
+.mh-name{font-family:'Anton',sans-serif;font-size:2rem;color:var(--navy);text-transform:uppercase;letter-spacing:1px;line-height:1}
+.mh-name .heart{color:var(--red)}
+.mh-loc{font-family:'Oswald',sans-serif;letter-spacing:3px;font-size:.85rem;color:var(--navy);text-transform:uppercase}
+section{padding:60px 0;position:relative;z-index:2}
+.panel{background:rgba(0,16,32,.55);backdrop-filter:blur(2px);border:1px solid var(--line);border-radius:8px;padding:40px 34px}
+@media(max-width:640px){.panel{padding:28px 20px}}
+h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1;color:var(--cream-2);margin-bottom:22px}
+p{margin-bottom:14px}
+.kick{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px;color:var(--orange-hi);font-size:.9rem;margin-bottom:8px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:26px 0}
+@media(max-width:720px){.stat-row{grid-template-columns:1fr}}
+.stat{background:linear-gradient(135deg,var(--orange),var(--red));border-radius:8px;padding:26px 20px;text-align:center;box-shadow:var(--shadow)}
+.stat .big{font-family:'Anton',sans-serif;font-size:2.6rem;line-height:1;color:var(--cream-2)}
+.stat .cap{font-family:'Oswald',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:.78rem;margin-top:8px;color:var(--cream)}
+.ask-list{list-style:none;margin:14px 0}
+.ask-list li{padding:10px 0 10px 34px;position:relative;border-bottom:1px solid rgba(240,216,168,.12)}
+.ask-list li::before{content:"🏁";position:absolute;left:0;top:10px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:10px}
+@media(max-width:820px){.two-col{grid-template-columns:1fr}}
+.card{background:rgba(0,0,0,.34);border:1px solid var(--line);border-radius:4px;padding:26px}
+.card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange-hi);font-size:1rem;margin-bottom:14px}
+.btn{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.9rem;padding:15px 30px;border-radius:2px;border:0;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .12s}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 4px 0 #8f3800}
+.btn-primary:active{transform:translateY(3px);box-shadow:0 1px 0 #8f3800}
+.btn-ghost{background:transparent;color:var(--cream);border:2px solid var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:var(--ink)}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+.center{text-align:center}
+.center .btn-row{justify-content:center}
+footer{background:rgba(10,10,12,.9);padding:44px 0 30px;border-top:2px solid var(--orange);position:relative;z-index:2}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;align-items:center;gap:14px}
+.foot-brand img{height:96px}
+.foot-brand .txt{font-family:'Anton',sans-serif;text-transform:uppercase;color:var(--cream-2);line-height:1;font-size:1.2rem}
+.foot-brand .txt small{display:block;font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:1.5px;color:var(--gold);margin-top:5px;font-weight:600}
+.legal{max-width:60ch;font-size:.8rem;opacity:.65;line-height:1.7}
+.legal strong{color:var(--gold);opacity:1}
+.foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;opacity:.55;text-align:center}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;animation:none !important;transition:none !important}}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-offset:2px}
+</style>
+</head>
+<body>
+<div id="bg-scroll"></div>
+<div id="bg-glow"></div>
+<div class="checker" aria-hidden="true"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><img src="assets/logo.png" alt="Good Vibes Grand Prix logo"> Good Vibes Grand Prix</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <nav class="nav-links" id="navlinks">
+      <a href="index.html">Race Day</a>
+      <a href="index.html#how">How It Works</a>
+      <a href="index.html#details">Details</a>
+      <a href="index.html#reserve" class="nav-cta">Reserve</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">← Back to Race Day</a></div>
+    <div class="sec-label">Why We Race</div>
+    <h1>Mom's House<br>of Phoenixville</h1>
+    <p class="sub">Free childcare for single parents attending school full time — since 1987</p>
+
+    <div class="mh-lockup" id="mh-lockup">
+      <img class="real" id="mh-real-logo" src="assets/momshouse-logo.png" alt="Mom's House of Phoenixville logo" style="display:none" onload="document.getElementById('mh-fallback').style.display='none';this.style.display='block'">
+      <div class="mh-fallback" id="mh-fallback">
+        <svg class="mh-house" viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M32 6 L58 28 L52 28 L52 56 L12 56 L12 28 L6 28 Z" fill="#001830"/>
+          <rect x="26" y="38" width="12" height="18" fill="#F0D8A8"/>
+          <path d="M32 22 c-3-5-11-3-11 3 c0 5 7 9 11 12 c4-3 11-7 11-12 c0-6-8-8-11-3z" fill="#C01800"/>
+        </svg>
+        <div class="mh-name">Mom's <span class="heart">♥</span> House</div>
+        <div class="mh-loc">· Phoenixville ·</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
+
+<section>
+  <div class="wrap">
+    <div class="panel">
+      <p class="kick">The Mission</p>
+      <h2>A Hand Up, Not A Handout</h2>
+      <p>Mom's House of Phoenixville provides a unique family support system — including <strong>free, state-licensed childcare</strong> — for low-income, single parents while they pursue their full-time education and become independent members of society.</p>
+      <p>Here's the problem they solve: childcare is the single biggest obstacle standing between a young parent and a classroom. If you can't afford care, you can't go to school. If you can't finish school, you can't build a career. Mom's House breaks that cycle.</p>
+      <p>They care for children from <strong>3 months to age 5</strong> — nutritious meals, clothing, diapers, and essentials included — and prepare toddlers for preschool, while their parents attend high school, GED programs, technical school, or college.</p>
+
+      <div class="stat-row">
+        <div class="stat"><div class="big">1987</div><div class="cap">Helping parents finish school since</div></div>
+        <div class="stat"><div class="big">2%</div><div class="cap">Of teen moms earn a degree by 30 — they exist to change that</div></div>
+        <div class="stat"><div class="big">$0</div><div class="cap">Government funding — donor powered, 100%</div></div>
+      </div>
+
+      <p class="kick">It's not free-for-nothing</p>
+      <p>Mom's House parents hold up their end of the deal:</p>
+      <ul class="ask-list">
+        <li>Attend school full time — and keep their grades passing</li>
+        <li>Volunteer two hours each week at Mom's House</li>
+        <li>Attend monthly parenting workshops</li>
+      </ul>
+      <p>That's the whole spirit of the place: accountability and support, pointed at independence. It works — their graduates go on to degrees, careers, and homes of their own.</p>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
+
+<section>
+  <div class="wrap">
+    <div class="two-col">
+      <div class="card">
+        <h3>Where Your Bids Go</h3>
+        <p>Mom's House receives <strong>no federal or state funding</strong>. Every diaper, every meal, every teacher is paid for by donors and community groups — people like the crowd at the Good Vibes Grand Prix.</p>
+        <p>100% of the net proceeds from race day go directly to Mom's House. When you bid on a racer, you're keeping a parent in school and a kid cared for.</p>
+      </div>
+      <div class="card">
+        <h3>Visit &amp; Support Them Directly</h3>
+        <p>Mom's House recently moved to a bigger home — First United Methodist Church, 865 S. Main St, Phoenixville — so they can take in more families.</p>
+        <p>Learn more, read success stories, or donate any day of the year:</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://www.momshouse-phoenixville.org" target="_blank" rel="noopener">Visit Mom's House →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="center" style="margin-top:44px">
+      <a class="btn btn-ghost" href="index.html#reserve">← Back to Race Day · Reserve a Seat</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="checker" aria-hidden="true"></div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="Good Vibes Grand Prix logo">
+        <div class="txt">Good Vibes<br>Grand Prix<small>Presented by VFW Post 1564<br>Ettinger · Powers · Campbell</small></div>
+      </div>
+      <div class="legal">
+        <p><strong>Good Vibes Grand Prix</strong> is a charity gaming event conducted by Valley Forge VFW Post 1564 (Ettinger–Powers–Campbell) under its Pennsylvania Small Games of Chance license. The Post is the licensed operator. Must be 21 or older to attend; valid photo ID required at the door.</p>
+        <p style="margin-top:10px">100% of net proceeds benefit Mom's House, Phoenixville. Mom's House is an independent 501(c)(3); learn more at momshouse-phoenixville.org. Event format, auction, and prizes are subject to final confirmation by Post leadership and applicable county authorities. Please play responsibly.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Valley Forge VFW Post 1564 · Good Vibes Grand Prix · 200 Starr St, Phoenixville, PA 19460</div>
+  </div>
+</footer>
+
+<script>
+const glow=document.getElementById('bg-glow');
+function onScroll(){const p=window.scrollY/(document.body.scrollHeight-window.innerHeight||1);glow.style.setProperty('--glow-y',(10+p*80).toFixed(1)+'%');}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+</script>
+</body>
+</html>
