@@ -99,8 +99,8 @@ footer{background:rgba(10,10,12,.9);padding:44px 0 30px;border-top:2px solid var
 .btn:hover::after{left:130%}
 #race-track{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(240,216,168,.14);z-index:60;pointer-events:none}
 #race-track::after{content:"";position:absolute;right:0;top:-3px;width:12px;height:11px;background:conic-gradient(#0A0A0C 90deg,#F5E8CC 90deg 180deg,#0A0A0C 180deg 270deg,#F5E8CC 270deg) 0 0/6px 5.5px}
-#race-car{position:fixed;bottom:3px;left:0;z-index:61;pointer-events:none;transform:translateX(calc(var(--race-x,0)*(100vw - 64px)))}
-#race-car svg{display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+#race-car{position:fixed;bottom:3px;left:0;z-index:61;pointer-events:none;transform:translateX(calc(var(--race-x,0)*(100vw - 70px)))}
+#race-car img{height:26px;width:auto;display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
 @media(max-width:480px){.nav-brand{font-size:.88rem;gap:9px}.nav-brand img{height:42px}section{padding:48px 0}.hero{padding:48px 0 36px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;animation:none !important;transition:none !important}}
 a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-offset:2px}
@@ -221,18 +221,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
 </footer>
 
 <div id="race-track" aria-hidden="true"></div>
-<div id="race-car" aria-hidden="true">
-  <svg width="58" height="26" viewBox="0 0 58 26" xmlns="http://www.w3.org/2000/svg">
-    <line x1="0" y1="9" x2="12" y2="9" stroke="#F07A1A" stroke-width="2" opacity=".7"/>
-    <line x1="2" y1="14" x2="10" y2="14" stroke="#F07A1A" stroke-width="2" opacity=".45"/>
-    <path d="M14 16 Q15 8 26 7 L38 6 Q50 6 54 12 L55 16 Z" fill="#D8C090" stroke="#8A6A1E" stroke-width="1"/>
-    <circle cx="31" cy="9" r="4.5" fill="#001830" stroke="#D8C090" stroke-width="1.2"/>
-    <circle cx="22" cy="18" r="6" fill="#0A0A0C" stroke="#444" stroke-width="1.5"/>
-    <circle cx="46" cy="18" r="6" fill="#0A0A0C" stroke="#444" stroke-width="1.5"/>
-    <circle cx="22" cy="18" r="2" fill="#D8C090"/>
-    <circle cx="46" cy="18" r="2" fill="#D8C090"/>
-  </svg>
-</div>
+<div id="race-car" aria-hidden="true"><img src="assets/racer.png" alt=""></div>
 <script>
 const glow=document.getElementById('bg-glow');
 const car=document.getElementById('race-car');
