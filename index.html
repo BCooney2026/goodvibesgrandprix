@@ -248,6 +248,8 @@ footer{background:rgba(10,10,12,.9);padding:44px 0 30px;border-top:2px solid var
 .racer-card.revealed .q{color:var(--cream-2);font-size:1.15rem;letter-spacing:.5px}
 .racer-card.revealed .t{color:var(--orange-hi);opacity:1;font-style:italic;text-transform:none;letter-spacing:.3px;font-size:.78rem;margin-top:8px;line-height:1.4}
 .racer-card .tap-hint{font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);opacity:.55;margin-top:10px}
+.racer-card .tease{font-family:'Barlow',sans-serif;font-style:italic;font-size:.78rem;line-height:1.5;color:var(--cream);opacity:.72;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(240,216,168,.2)}
+.racer-card.revealed .tease{display:none}
 .racer-card .profile-text{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .35s ease,margin-top .4s ease;text-align:left;font-size:.85rem;line-height:1.6;color:var(--cream);opacity:.95}
 .racer-card[aria-expanded="true"] .profile-text{max-height:500px;opacity:.95;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
 .racer-card[aria-expanded="true"] .tap-hint{display:none}
@@ -386,10 +388,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
     <h2 class="sec-title">Meet The Racers</h2>
     <p class="lede">Twenty-four racers. Six heats. Zero dignity. Four names drop between now and race day, then the rest of the field stays a surprise until the green flag.</p>
     <div class="racer-grid">
-      <button class="racer-card" data-reveal="2026-07-20" data-name="Buzz Lightyear" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals July 20</div><div class="profile-text"></div></button>
-      <button class="racer-card" data-reveal="2026-07-31" data-name="The Throbfather" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals July 31</div><div class="profile-text"></div></button>
-      <button class="racer-card" data-reveal="2026-08-11" data-name="Forrest Hump" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals August 11</div><div class="profile-text"></div></button>
-      <button class="racer-card" data-reveal="2026-08-22" data-name="The Fast and the Frictionless" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals August 22</div><div class="profile-text"></div></button>
+      <button class="racer-card" data-reveal="2026-07-20" data-name="Buzz Lightyear" data-tease="Just some racer we found. Totally ordinary. Nothing to see here. (You're going to want to be here.)" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals July 20</div><div class="tease"></div><div class="profile-text"></div></button>
+      <button class="racer-card" data-reveal="2026-07-31" data-name="The Throbfather" data-tease="A random entry. No pedigree. No legend. Definitely not a future crowd favorite. Definitely." aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals July 31</div><div class="tease"></div><div class="profile-text"></div></button>
+      <button class="racer-card" data-reveal="2026-08-11" data-name="Forrest Hump" data-tease="Pulled at random from the field. Unremarkable in every way. Please lower your expectations accordingly." aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals August 11</div><div class="tease"></div><div class="profile-text"></div></button>
+      <button class="racer-card" data-reveal="2026-08-22" data-name="The Fast and the Frictionless" data-tease="Nobody special. Just filling out the bracket. You'll probably forget this one immediately. (You won't.)" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals August 22</div><div class="tease"></div><div class="profile-text"></div></button>
     </div>
   </div>
 </section>
@@ -600,6 +602,8 @@ document.querySelectorAll('.racer-card[data-reveal]').forEach(card=>{
         card.setAttribute('aria-expanded', open ? 'false' : 'true');
       });
     }
+  } else if(card.dataset.tease){
+    card.querySelector('.tease').textContent = card.dataset.tease;
   }
 });
 const target=new Date('2026-08-29T11:00:00-04:00').getTime();
