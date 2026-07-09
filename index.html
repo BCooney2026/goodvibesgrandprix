@@ -15,6 +15,38 @@
 <meta name="twitter:description" content="Aug 29, 2026 · Valley Forge VFW · 21+ · Benefiting Mom's House Phoenixville">
 <meta name="twitter:image" content="https://goodvibesgrandprix.com/assets/poster.jpg">
 <meta name="theme-color" content="#001830">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Good Vibes Grand Prix — First Annual",
+  "description": "VFW Post 1564 presents the World Famous Good Vibes Grand Prix — a cheeky 21+ charity race day at the Valley Forge VFW. Novelty racers, live auctions, thrills & prizes. 100% of net proceeds benefit Mom's House of Phoenixville.",
+  "startDate": "2026-08-29T11:00:00-04:00",
+  "endDate": "2026-08-29T16:00:00-04:00",
+  "doorTime": "2026-08-29T10:00:00-04:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "typicalAgeRange": "21-",
+  "image": "https://goodvibesgrandprix.com/assets/poster.jpg",
+  "url": "https://goodvibesgrandprix.com",
+  "location": {
+    "@type": "Place",
+    "name": "Valley Forge VFW Post 1564",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "200 Starr St",
+      "addressLocality": "Phoenixville",
+      "addressRegion": "PA",
+      "postalCode": "19460",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Valley Forge VFW Post 1564 (Ettinger–Powers–Campbell)"
+  }
+}
+</script>
 <link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
@@ -186,6 +218,28 @@ footer{background:rgba(10,10,12,.9);padding:44px 0 30px;border-top:2px solid var
 .legal{max-width:60ch;font-size:.8rem;opacity:.65;line-height:1.7}
 .legal strong{color:var(--gold);opacity:1}
 .foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;opacity:.55;text-align:center}
+/* FAQ */
+.faq{max-width:760px;margin-top:8px}
+.faq details{background:rgba(0,0,0,.3);border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:4px;margin-bottom:12px;overflow:hidden}
+.faq summary{cursor:pointer;padding:16px 20px;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:.95rem;color:var(--cream-2);list-style:none;position:relative;padding-right:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-family:'Anton',sans-serif;font-size:1.4rem;color:var(--orange-hi);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq .a{padding:0 20px 18px;opacity:.92}
+.faq .a a{color:var(--orange-hi)}
+/* Meet the Racers teaser */
+.racer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+@media(max-width:820px){.racer-grid{grid-template-columns:repeat(2,1fr)}}
+.racer-card{background:rgba(0,0,0,.3);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:6px;padding:22px 14px;text-align:center}
+.racer-card img{height:34px;width:auto;filter:brightness(0) invert(.85) opacity(.35);margin-bottom:12px}
+.racer-card .q{font-family:'Anton',sans-serif;font-size:1.6rem;color:var(--gold);letter-spacing:2px}
+.racer-card .t{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cream);opacity:.7;margin-top:5px}
+/* notify + calendar */
+#notify-btn{display:none}
+#notify-btn.ready{display:inline-block}
+.cal-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.cal-links a{font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--line);border-radius:20px;padding:7px 15px;transition:all .2s}
+.cal-links a:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;animation:none !important;transition:none !important}.reveal{opacity:1;transform:none}}
 a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-offset:2px}
 </style>
@@ -203,6 +257,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
       <a href="#how">How It Works</a>
       <a href="#details">Details</a>
       <a href="#sponsors">Sponsors</a>
+      <a href="#faq">FAQ</a>
       <a href="#reserve" class="nav-cta">Reserve</a>
     </nav>
   </div>
@@ -289,6 +344,23 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
   </div>
 </section>
 <div class="checker" aria-hidden="true"></div>
+
+<!-- MEET THE RACERS (teaser) -->
+<section id="racers">
+  <div class="wrap reveal">
+    <div class="sec-label">The Field</div>
+    <h2 class="sec-title">Meet The Racers</h2>
+    <p class="lede">Twenty-four racers. Six heats. Zero dignity. Every racer runs under a race name you will not forget — and the full field stays under wraps until closer to the green flag.</p>
+    <div class="racer-grid">
+      <div class="racer-card"><img src="assets/racer.png" alt=""><div class="q">???</div><div class="t">Heat 1 · Revealed Soon</div></div>
+      <div class="racer-card"><img src="assets/racer.png" alt=""><div class="q">???</div><div class="t">Heat 2 · Revealed Soon</div></div>
+      <div class="racer-card"><img src="assets/racer.png" alt=""><div class="q">???</div><div class="t">Heat 3 · Revealed Soon</div></div>
+      <div class="racer-card"><img src="assets/racer.png" alt=""><div class="q">???</div><div class="t">The Finale · Slowest Wins</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
 <section id="details">
   <div class="wrap reveal">
     <div class="sec-label">The Fine Print</div>
@@ -300,6 +372,10 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
         <p>Gates open <strong>10:00 AM</strong></p>
         <p>Races start <strong>11:00 AM</strong></p>
         <p style="margin-top:14px"><span class="pill">21+ · ID Required</span></p>
+        <div class="cal-links" style="justify-content:flex-start">
+          <a href="good-vibes-grand-prix.ics" download>📅 Apple / Outlook</a>
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Good+Vibes+Grand+Prix&dates=20260829T140000Z/20260829T200000Z&details=First+Annual+Good+Vibes+Grand+Prix+%E2%80%94+charity+race+day+at+the+Valley+Forge+VFW.+21%2B.+Benefiting+Mom%27s+House+Phoenixville.+goodvibesgrandprix.com&location=Valley+Forge+VFW%2C+200+Starr+St%2C+Phoenixville%2C+PA+19460" target="_blank" rel="noopener">📅 Google Calendar</a>
+        </div>
       </div>
       <div class="card">
         <h3>Where</h3>
@@ -327,6 +403,50 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
   </div>
 </section>
 <div class="checker" aria-hidden="true"></div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap reveal">
+    <div class="sec-label">Pit Wall Questions</div>
+    <h2 class="sec-title">FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Wait — is this real?</summary>
+        <div class="a">Extremely. It's a proven charity format made famous in Key West, where it sells out months in advance. Ours is the first annual Pennsylvania edition, run by VFW Post 1564 with 100% of net proceeds going to <a href="moms-house.html">Mom's House of Phoenixville</a>.</div>
+      </details>
+      <details>
+        <summary>What exactly is racing?</summary>
+        <div class="a">Let's call them self-propelled novelty racers and leave the rest to your imagination — which is exactly where it belongs. It's cheeky, it's ridiculous, and it's all for the kids and parents at Mom's House. The innuendo stays on the track; the event itself is all laughs.</div>
+      </details>
+      <details>
+        <summary>Why 21+?</summary>
+        <div class="a">It's an adult-humor event held in a licensed club with cash gaming. No exceptions, and photo ID gets checked at the door — yes, even if you have gray hair and grandkids.</div>
+      </details>
+      <details>
+        <summary>How do tickets work?</summary>
+        <div class="a">Advance tickets guarantee your seat, and seating is limited. Ticketing details drop soon — right here on this site. Grab the date on your calendar from the <a href="#details">Details</a> section so you don't miss the drop.</div>
+      </details>
+      <details>
+        <summary>Do I have to bid?</summary>
+        <div class="a">Nobody's forcing you — but this is not a spectator sport. Bidding starts at just $10, backing a racer is the whole fun, and every dollar drives to Mom's House. Bring cash; you'll want it when the bidding war starts.</div>
+      </details>
+      <details>
+        <summary>Can I bring my own racer?</summary>
+        <div class="a">Absolutely not, and we can't believe you asked. All racers are provided, inspected, and named by the house — a level playing field is sacred in motorsport.</div>
+      </details>
+      <details>
+        <summary>Where does the money actually go?</summary>
+        <div class="a">100% of net proceeds go to <a href="moms-house.html">Mom's House of Phoenixville</a> — free, state-licensed childcare so single parents can finish school. They receive zero government funding. Your bids literally keep the lights on.</div>
+      </details>
+      <details>
+        <summary>Food? Drinks? Parking?</summary>
+        <div class="a">It's a VFW post — you will not go hungry or thirsty. Full details on food, drink, and parking will be posted along with ticketing info.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="checker" aria-hidden="true"></div>
 <section id="reserve">
   <div class="wrap reveal">
     <div class="sec-label">Get In The Grandstand</div>
@@ -335,9 +455,13 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
     <div class="soon-box">
       <img src="assets/logo.png" alt="" aria-hidden="true" style="width:150px;height:auto;display:block;margin:0 auto 18px;filter:drop-shadow(0 8px 16px rgba(0,0,0,.5))">
       <span class="pill">Tickets Coming Soon</span>
-      <p>We're finalizing ticketing now. Check back shortly — or follow VFW Post 1564 for the drop.</p>
-      <p style="opacity:.7;font-size:.9rem">Sponsors &amp; seat reservations: your ticketing link lands right here.</p>
-      <a class="btn btn-disabled" aria-disabled="true" tabindex="-1">Tickets Coming Soon</a>
+      <p>We're finalizing ticketing now. Be first in line when they drop:</p>
+      <a id="notify-btn" class="btn btn-primary" href="#" target="_blank" rel="noopener">🔔 Notify Me When Tickets Drop</a>
+      <p style="opacity:.7;font-size:.9rem;margin-top:14px">Or lock in the date right now:</p>
+      <div class="cal-links">
+        <a href="good-vibes-grand-prix.ics" download>📅 Apple / Outlook</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Good+Vibes+Grand+Prix&dates=20260829T140000Z/20260829T200000Z&details=First+Annual+Good+Vibes+Grand+Prix+%E2%80%94+charity+race+day+at+the+Valley+Forge+VFW.+21%2B.+Benefiting+Mom%27s+House+Phoenixville.+goodvibesgrandprix.com&location=Valley+Forge+VFW%2C+200+Starr+St%2C+Phoenixville%2C+PA+19460" target="_blank" rel="noopener">📅 Google Calendar</a>
+      </div>
     </div>
   </div>
 </section>
@@ -361,6 +485,11 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
 <div id="race-track" aria-hidden="true"></div>
 <div id="race-car" aria-hidden="true"><img src="assets/racer.png" alt=""></div>
 <script>
+// ==== CONFIG: paste your Tally form link between the quotes to activate the notify button ====
+const TALLY_URL = "";
+// =============================================================================================
+const nb=document.getElementById('notify-btn');
+if(TALLY_URL){nb.href=TALLY_URL;nb.classList.add('ready');}
 const target=new Date('2026-08-29T11:00:00-04:00').getTime();
 const dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s'),note=document.getElementById('cd-note');
 function pad(n){return String(n).padStart(2,'0')}
