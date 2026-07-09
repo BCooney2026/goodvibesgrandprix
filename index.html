@@ -237,10 +237,20 @@ footer{background:rgba(10,10,12,.9);padding:44px 0 30px;border-top:2px solid var
 /* Meet the Racers teaser */
 .racer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
 @media(max-width:820px){.racer-grid{grid-template-columns:repeat(2,1fr)}}
-.racer-card{background:rgba(0,0,0,.3);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:6px;padding:22px 14px;text-align:center}
+.racer-card{background:rgba(0,0,0,.3);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:6px;padding:22px 14px;text-align:center;font-family:inherit;cursor:default;width:100%;display:block}
+.racer-card.revealed{cursor:pointer;transition:background .2s,border-color .2s}
+.racer-card.revealed:hover{background:rgba(0,0,0,.45);border-top-color:var(--orange-hi)}
 .racer-card .sil{display:block;margin:0 auto 12px;filter:brightness(0) invert(.85);opacity:.4}
 .racer-card .q{font-family:'Anton',sans-serif;font-size:1.6rem;color:var(--gold);letter-spacing:2px}
 .racer-card .t{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cream);opacity:.7;margin-top:5px}
+.racer-card.revealed{border-top-color:var(--orange)}
+.racer-card.revealed .sil{filter:none;opacity:1}
+.racer-card.revealed .q{color:var(--cream-2);font-size:1.15rem;letter-spacing:.5px}
+.racer-card.revealed .t{color:var(--orange-hi);opacity:1;font-style:italic;text-transform:none;letter-spacing:.3px;font-size:.78rem;margin-top:8px;line-height:1.4}
+.racer-card .tap-hint{font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);opacity:.55;margin-top:10px}
+.racer-card .profile-text{max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .35s ease,margin-top .4s ease;text-align:left;font-size:.85rem;line-height:1.6;color:var(--cream);opacity:.95}
+.racer-card[aria-expanded="true"] .profile-text{max-height:500px;opacity:.95;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.racer-card[aria-expanded="true"] .tap-hint{display:none}
 /* notify + calendar */
 #notify-btn{display:none}
 #notify-btn.ready{display:inline-block}
@@ -374,12 +384,12 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
   <div class="wrap reveal">
     <div class="sec-label">The Field</div>
     <h2 class="sec-title">Meet The Racers</h2>
-    <p class="lede">Twenty-four racers. Six heats. Zero dignity. Every racer runs under a race name you will not forget, and the full field stays under wraps until closer to the green flag.</p>
+    <p class="lede">Twenty-four racers. Six heats. Zero dignity. Four names drop between now and race day, then the rest of the field stays a surprise until the green flag.</p>
     <div class="racer-grid">
-      <div class="racer-card"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Heat 1 · Revealed Soon</div></div>
-      <div class="racer-card"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Heat 2 · Revealed Soon</div></div>
-      <div class="racer-card"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Heat 3 · Revealed Soon</div></div>
-      <div class="racer-card"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">The Finale · Slowest Wins</div></div>
+      <button class="racer-card" data-reveal="2026-07-20" data-name="Buzz Lightyear" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals July 20</div><div class="profile-text"></div></button>
+      <button class="racer-card" data-reveal="2026-07-31" data-name="The Throbfather" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals July 31</div><div class="profile-text"></div></button>
+      <button class="racer-card" data-reveal="2026-08-11" data-name="Forrest Hump" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals August 11</div><div class="profile-text"></div></button>
+      <button class="racer-card" data-reveal="2026-08-22" data-name="The Fast and the Frictionless" aria-expanded="false"><svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg><div class="q">???</div><div class="t">Reveals August 22</div><div class="profile-text"></div></button>
     </div>
   </div>
 </section>
@@ -552,6 +562,46 @@ function copyRaceLink(btn){
     setTimeout(()=>btn.textContent=orig,1800);
   });
 }
+// racer card auto-reveal: flips ??? to the real name once its date arrives, then enables tap/click for the bio
+const RACER_PROFILES = {
+  "Buzz Lightyear": {
+    tagline: "To infinity… and beyond the finish line.",
+    bio: "He came from the toy box. He trained in zero gravity. And now he is ready to blast off for a cause that is much bigger than himself. Buzz Lightyear is here to prove that courage comes in all sizes, battery levels matter, and sometimes the fastest way to charity glory is straight to infinity and beyond."
+  },
+  "The Throbfather": {
+    tagline: "He came. He saw. He made them an offer they couldn't unclench.",
+    bio: "In a world full of amateurs, one racer stands alone in a perfectly tailored suit, making offers nobody can refuse. The Throbfather is cool, calculated, and dangerously smooth on the track. He does not beg for the spotlight. He owns it. When the buzzer sounds, respect will be paid."
+  },
+  "Forrest Hump": {
+    tagline: "Run, Forrest, run… straight to the finish line.",
+    bio: "Life is like a box of batteries. You never know how long you're gonna last. Forrest Hump may not be the flashiest racer in the field, but do not underestimate that steady stroke of determination. He has heart, he has stamina, and when the race starts, there is only one thing left to do."
+  },
+  "The Fast and the Frictionless": {
+    tagline: "Quarter mile? Try quarter inch.",
+    bio: "Built for speed. Engineered for chaos. Completely unqualified for public roads. The Fast and the Frictionless enters the race with one mission: leave the competition shaking, sliding, and questioning their life choices. There are racers, there are legends, and then there is this high-speed menace on a one-way trip to glory."
+  }
+};
+document.querySelectorAll('.racer-card[data-reveal]').forEach(card=>{
+  const revealDate = new Date(card.dataset.reveal + 'T09:00:00-04:00');
+  if(Date.now() >= revealDate.getTime()){
+    const name = card.dataset.name;
+    const profile = RACER_PROFILES[name];
+    card.classList.add('revealed');
+    card.querySelector('.q').textContent = name;
+    if(profile){
+      card.querySelector('.t').textContent = profile.tagline;
+      card.querySelector('.profile-text').textContent = profile.bio;
+      const hint=document.createElement('div');
+      hint.className='tap-hint';
+      hint.textContent='Tap for bio ↓';
+      card.appendChild(hint);
+      card.addEventListener('click', ()=>{
+        const open = card.getAttribute('aria-expanded') === 'true';
+        card.setAttribute('aria-expanded', open ? 'false' : 'true');
+      });
+    }
+  }
+});
 const target=new Date('2026-08-29T11:00:00-04:00').getTime();
 const dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s'),note=document.getElementById('cd-note');
 function pad(n){return String(n).padStart(2,'0')}
