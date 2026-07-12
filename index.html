@@ -212,6 +212,40 @@ html.js-reveal .reveal.in{opacity:1;transform:none}
 .sponsor-slot .q{font-family:'Anton',sans-serif;font-size:2rem;color:var(--gold);opacity:.5}
 .sponsor-slot .t{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--cream);opacity:.7;margin-top:6px}
 .sponsor-cta{text-align:center;margin-top:24px}
+/* rich sponsor tier cards */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;align-items:stretch}
+@media(max-width:900px){.tier-grid{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}}
+.tier-card{position:relative;display:flex;flex-direction:column;background:linear-gradient(160deg,rgba(0,33,64,.55),rgba(0,16,32,.6));border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:10px;padding:30px 26px 26px;box-shadow:var(--shadow)}
+.tier-card.flag{border-top-color:var(--red)}
+.tier-card.crew{border-top-color:var(--orange)}
+.tier-card.feature{border-color:rgba(216,192,144,.5);box-shadow:0 0 0 1px rgba(216,192,144,.25),var(--shadow)}
+.tier-ribbon{position:absolute;top:14px;right:-4px;background:linear-gradient(90deg,var(--gold),#8A6A1E);color:var(--ink);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.62rem;padding:5px 14px 5px 12px;border-radius:3px 0 0 3px;box-shadow:0 3px 0 rgba(0,0,0,.3)}
+.tier-ribbon::after{content:"";position:absolute;right:0;bottom:-5px;border-width:0 4px 5px 0;border-style:solid;border-color:transparent #5a460f transparent transparent}
+.tier-name{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.5rem;line-height:1;color:var(--cream-2)}
+.tier-card.feature .tier-name{color:var(--gold)}
+.tier-card.flag .tier-name{color:var(--orange-hi)}
+.tier-price{font-family:'Anton',sans-serif;font-size:2.8rem;line-height:1;margin:8px 0 2px;color:var(--cream-2)}
+.tier-price .amt{color:var(--orange)}
+.tier-card.feature .tier-price .amt{color:var(--gold)}
+.tier-avail{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.66rem;color:var(--gold);opacity:.9;margin-bottom:4px;min-height:.9rem}
+.tier-card.flag .tier-avail{color:var(--orange-hi)}
+.tier-card.crew .tier-avail{color:var(--cream);opacity:.6}
+.tier-tag{font-family:'Barlow',sans-serif;font-style:italic;font-size:.92rem;color:var(--cream);opacity:.85;margin:10px 0 16px;line-height:1.4;border-top:1px solid var(--line);padding-top:14px}
+.tier-perks{list-style:none;margin:0 0 20px;padding:0;flex:1}
+.tier-perks li{position:relative;padding:0 0 9px 24px;font-size:.9rem;line-height:1.4;color:var(--cream);opacity:.94}
+.tier-perks li::before{content:"\1F3C1";position:absolute;left:0;top:1px;font-size:.8rem;opacity:.9}
+.tier-perks li.rule{padding-left:24px}
+.tier-perks li.rule::before{content:"\2713";color:var(--gold);font-weight:700}
+.tier-card .btn{width:100%;text-align:center;margin-top:auto}
+.tier-foot{margin-top:22px;background:linear-gradient(135deg,rgba(224,90,0,.16),rgba(0,0,0,.34));border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:6px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.tier-foot .tf-copy{flex:1;min-width:240px}
+.tier-foot h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.3rem;color:var(--cream-2);margin-bottom:4px}
+.tier-foot p{font-size:.92rem;opacity:.9;margin:0}
+.btn-pdf{background:var(--cream);color:var(--navy);box-shadow:0 4px 0 #b39a5e;display:inline-flex;align-items:center;justify-content:center;gap:9px}
+@media(max-width:520px){.tier-foot{flex-direction:column;align-items:stretch;text-align:center}.tier-foot .tf-copy{min-width:0}.btn-pdf{width:100%}}
+.btn-pdf:active{transform:translateY(3px);box-shadow:0 1px 0 #b39a5e}
+.tier-rules-note{margin-top:20px;font-size:.86rem;line-height:1.6;opacity:.78;max-width:74ch}
+.tier-rules-note strong{color:var(--gold);opacity:1}
 #reserve{text-align:center}
 .soon-box{max-width:560px;margin:24px auto 0;background:rgba(0,0,0,.4);border:2px dashed var(--gold);border-radius:6px;padding:38px 30px}
 .soon-box .pill{margin-bottom:16px}
@@ -483,10 +517,60 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
     <div class="sec-label">Pit Crew</div>
     <h2 class="sec-title">Become A Sponsor</h2>
     <p class="lede">Local businesses power this race. Sponsors get their name in front of a packed, generous crowd, and the good karma of backing free childcare for parents chasing a degree. Three ways to get on the grid:</p>
-    <div class="steps" style="margin-top:26px">
-      <div class="step"><div class="num">$200</div><h3>Grand Prix</h3><p>Claim &amp; brand one of four racing ducks in the marquee race. VIP table for six, premium placement, emcee shout-outs, and featured social. Only four, ever.</p></div>
-      <div class="step"><div class="num">$100</div><h3>Checkered Flag</h3><p>Field your own racer in a Checkered Flag heat. Your logo on the site, event recognition, and a social thank-you. Limited spots.</p></div>
-      <div class="step"><div class="num">$50</div><h3>Pit Crew</h3><p>Get your business name on the event website and sponsor signage, with recognition during the night's thank-yous.</p></div>
+    <div class="tier-grid">
+      <article class="tier-card feature">
+        <div class="tier-ribbon">Only 4 Ever</div>
+        <div class="tier-name">Grand Prix</div>
+        <div class="tier-price"><span class="amt">$200</span></div>
+        <div class="tier-avail">Premier Tier · First-Come</div>
+        <div class="tier-tag">You're not sponsoring the race. You ARE the race.</div>
+        <ul class="tier-perks">
+          <li>Claim &amp; brand one of four racing ducks in your colors</li>
+          <li>Your duck runs in the marquee Grand Prix race</li>
+          <li>Reserved VIP table for up to 6 guests</li>
+          <li>Premium logo placement at the event</li>
+          <li>Live emcee shout-outs on race night</li>
+          <li>Featured social media, before &amp; after</li>
+          <li>Featured as a claimed sponsor on this site</li>
+        </ul>
+        <a href="#reserve" class="btn btn-primary sponsor-pick" data-tier="Grand Prix ($200)">Claim A Duck</a>
+      </article>
+      <article class="tier-card flag">
+        <div class="tier-name">Checkered Flag</div>
+        <div class="tier-price"><span class="amt">$100</span></div>
+        <div class="tier-avail">Limited Spots</div>
+        <div class="tier-tag">Your own racer on the track, minus the VIP table.</div>
+        <ul class="tier-perks">
+          <li>Field your own racer in a Checkered Flag heat</li>
+          <li>Decorate your racer in your company colors</li>
+          <li>Business logo on the event website</li>
+          <li>Recognition at the event</li>
+          <li>Social media thank-you</li>
+          <li>Bragging rights if your racer takes a heat</li>
+        </ul>
+        <a href="#reserve" class="btn btn-ghost sponsor-pick" data-tier="Checkered Flag ($100)">Field A Racer</a>
+      </article>
+      <article class="tier-card crew">
+        <div class="tier-name">Pit Crew</div>
+        <div class="tier-price"><span class="amt">$50</span></div>
+        <div class="tier-avail">Open</div>
+        <div class="tier-tag">Every great race needs a pit crew.</div>
+        <ul class="tier-perks">
+          <li>Business name on the event website</li>
+          <li>Recognition during sponsor thank-yous</li>
+          <li>Listing on sponsor signage (space permitting)</li>
+          <li>A feel-good stake in a hometown tradition</li>
+        </ul>
+        <a href="#reserve" class="btn btn-ghost sponsor-pick" data-tier="Pit Crew ($50)">Join The Crew</a>
+      </article>
+    </div>
+    <p class="tier-rules-note"><strong>What your racer needs:</strong> Grand Prix ducks are provided, you just brand yours. Checkered Flag sponsors bring a brand-new novelty racer in its original packaging (unsealed is fine, you're decorating it) with a receipt, dropped at the Post at least 7 days out for clearing. Every racer must be self-powered, fit the lane, and pass a quick safety check. We hand you the full checklist when you sign on.</p>
+    <div class="tier-foot">
+      <div class="tf-copy">
+        <h3>Get The Full Sponsor Packet</h3>
+        <p>Tiers, perks, racer rules, and a commitment form you can print, sign, and hand back. Everything in one page.</p>
+      </div>
+      <a href="assets/GVGP_Sponsorship_Packet.pdf" class="btn btn-pdf" download>⬇ Download Packet (PDF)</a>
     </div>
     <div class="sponsor-cta"><a href="#reserve" id="sponsor-btn" class="btn btn-ghost">Ask About Sponsoring</a></div>
   </div>
@@ -512,7 +596,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
       </details>
       <details>
         <summary>Can I bring my own racer?</summary>
-        <div class="a">Yes! Public entrants ($20) and Checkered Flag sponsors ($100) bring their own. It must be a novelty vibrator, brand new and sealed in the box, dropped off at the Post at least seven days before race night so it can be inspected and cleared. A few simple rules keep the racing fair (self-powered, fits the lane, nothing unsafe), and we'll walk you through them at drop-off. Grand Prix sponsors are the exception: we provide those four ducks.</div>
+        <div class="a">Yes! Public entrants ($20) and Checkered Flag sponsors ($100) bring their own novelty racer, dropped at the Post at least seven days before race night so it can be inspected and cleared. The one difference: <strong>public racers stay brand-new and sealed</strong> in the box, while <strong>Checkered Flag sponsors decorate theirs</strong>, so they bring it brand-new in its original packaging (unsealed is fine) with a receipt. A few simple rules keep the racing fair for everyone (self-powered, fits the lane, nothing unsafe), and we'll walk you through them at drop-off. Grand Prix sponsors are the exception: we provide those four ducks.</div>
       </details>
       <details>
         <summary>Why 21+?</summary>
@@ -586,6 +670,14 @@ if(TALLY_URL){nb.href=TALLY_URL;nb.classList.add('ready');}
 const spBtn=document.getElementById('sponsor-btn');
 if(SPONSOR_EMAIL){
   spBtn.href=`mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent('Sponsoring the Good Vibes Grand Prix')}&body=${encodeURIComponent("Hi! I'd like to talk about sponsoring the Good Vibes Grand Prix on August 29. Here's a bit about our business:\n\n")}`;
+}
+// tier "pick" buttons: prefill the email with the chosen tier when an address is set,
+// otherwise fall through to the #reserve anchor already in the href.
+if(SPONSOR_EMAIL){
+  document.querySelectorAll('.sponsor-pick').forEach(a=>{
+    const tier=a.getAttribute('data-tier')||'a sponsorship';
+    a.href=`mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent('Sponsoring the Good Vibes Grand Prix: '+tier)}&body=${encodeURIComponent("Hi! I'd like to sponsor the Good Vibes Grand Prix on August 29 at the "+tier+" level. Here's a bit about our business:\n\n")}`;
+  });
 }
 const target=new Date('2026-08-29T19:00:00-04:00').getTime();
 const dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s'),note=document.getElementById('cd-note');
