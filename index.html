@@ -320,6 +320,21 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
 .entry-callout .price{color:var(--orange-hi)}
 .entry-callout p{opacity:.92;margin-bottom:8px;max-width:66ch}
 .entry-callout .cash{display:inline-block;margin-top:8px;background:var(--gold);color:var(--ink);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:.82rem;padding:7px 16px;border-radius:4px}
+/* two-pot money mechanics + backing a racer */
+.money-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px}
+@media(max-width:820px){.money-grid{grid-template-columns:1fr}}
+.money-card{background:rgba(0,0,0,.3);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:6px;padding:26px 24px}
+.money-card.auction{border-top-color:var(--orange)}
+.money-card h3{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:.5px;font-size:1.3rem;color:var(--cream-2);margin-bottom:4px}
+.money-card .price-tag{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:.8rem;color:var(--orange-hi);margin-bottom:12px}
+.money-card p{font-size:.96rem;opacity:.92;margin-bottom:10px}
+.money-card .split{background:rgba(224,90,0,.12);border-left:4px solid var(--gold);border-radius:4px;padding:12px 16px;font-size:.9rem;line-height:1.5;margin-top:4px}
+.money-card .split b{color:var(--gold)}
+.spots-banner{margin-top:26px;background:linear-gradient(135deg,var(--red),#7a0f00);border-radius:6px;border-left:5px solid var(--gold);padding:22px 28px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.spots-banner .big-num{font-family:'Anton',sans-serif;font-size:3.6rem;line-height:.9;color:var(--cream-2);text-shadow:2px 2px 0 rgba(0,0,0,.3)}
+.spots-banner .sb-copy{flex:1;min-width:220px}
+.spots-banner h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.4rem;color:var(--cream-2);margin-bottom:4px;letter-spacing:.5px}
+.spots-banner p{font-size:.94rem;opacity:.95;margin:0}
 </style>
 </head>
 <body>
@@ -429,18 +444,42 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
     <h2 class="sec-title">How The Race Runs</h2>
     <div class="steps">
       <div class="step"><div class="num">01</div><h3>A Full Card Of Races</h3><p>A night of heats, four racers per race, each one lined up on the track and ready to buzz. Sponsor ducks, business racers, and public entries all take their turn.</p></div>
-      <div class="step"><div class="num">02</div><h3>Bid To Back A Racer</h3><p>Before each heat, racers go up for auction, bidding opens at $10. Back your favorite, then watch it run.</p></div>
+      <div class="step"><div class="num">02</div><h3>Back A Racer To Win</h3><p>Pick the racer you think takes the heat and put money on it. Sponsored races run auction-style; the individual races run on $5 backing tickets. Back a winner and you take home part of the pot.</p></div>
       <div class="step"><div class="num">03</div><h3>They're Off</h3><p>Loud music, confetti, the crack of the gong, the racers vibrate their way to the finish line. Winner takes the glory.</p></div>
     </div>
     <div class="finale">
       <h3>The Finale: Slowest Wins</h3>
       <p>We flip the script for the last race of the night. Dead last across the line takes the crown. Anything can happen, and usually does.</p>
     </div>
+    <h3 style="font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.5rem;color:var(--cream-2);margin:34px 0 2px">How The Money Works</h3>
+    <p style="opacity:.85;max-width:64ch">Two ways to put money on a racer, depending on the race. Either way, half the pot goes to Mom's House.</p>
+    <div class="money-grid">
+      <div class="money-card">
+        <h3>Back A Racer</h3>
+        <div class="price-tag">$5 per ticket · Individual races</div>
+        <p>In the individual races, buy $5 tickets on the racer you think wins. When the race is over, the whole pot for that race splits down the middle.</p>
+        <div class="split">Half the pot splits among everyone holding tickets on the winning racer. The other half goes to <b>Mom's House</b>. More tickets on the winner you hold, the bigger your share.</div>
+      </div>
+      <div class="money-card auction">
+        <h3>Bid In The Auction</h3>
+        <div class="price-tag">Sponsored races</div>
+        <p>The sponsored races (Grand Prix ducks and Checkered Flag racers) run auction-style. Back your favorite from the floor and cheer it home.</p>
+        <div class="split">Every dollar drives toward the cause. It's the loudest, most competitive part of the night, and it's all for <b>Mom's House</b>.</div>
+      </div>
+    </div>
     <div class="entry-callout">
       <h3>Race Your Own Racer &mdash; <span class="price">$20</span></h3>
       <p>Don't just watch, get in the race. Bring your own novelty racer, brand new in the box, and drop it off at the Post at least a week before race night to get it cleared and named. Then watch it fly (or crawl) down the track with your name on it.</p>
-      <p style="opacity:.8;font-size:.95rem">Public racer spots are limited and first-come. Simple rules apply, we'll walk you through them at drop-off.</p>
+      <p>You line up against three other racers. Each of the four pays $20 to enter, so the race carries an <strong>$80 pot</strong>. Win the heat and you take <strong>$40</strong>; the other <strong>$40</strong> goes to Mom's House.</p>
+      <p style="opacity:.8;font-size:.95rem">The $20 entry is separate from the $5 backing tickets, and it does not include your door admission. Simple rules apply, we'll walk you through them at drop-off.</p>
       <span class="cash">$20 Cash at Drop-Off · Cash Only</span>
+    </div>
+    <div class="spots-banner">
+      <div class="big-num">12</div>
+      <div class="sb-copy">
+        <h3>Only 12 Spots To Race Your Own</h3>
+        <p>Just twelve public racer spots exist for the whole night, first-come, first-served. When they're gone, they're gone. If you want your own racer on the track, claim a spot early.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -495,6 +534,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
         <p class="big">Saturday, August 29, 2026</p>
         <p>Gates open <strong>6:00 PM</strong></p>
         <p>Races start <strong>7:00 PM</strong></p>
+        <p style="margin-top:10px"><strong>$10 admission</strong> at the door · cash only</p>
         <p style="margin-top:14px"><span class="pill">21+ · ID Required</span></p>
         <div class="cal-links" style="justify-content:flex-start">
           <a href="good-vibes-grand-prix.ics" download>📅 Apple / Outlook</a>
@@ -592,7 +632,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
       </details>
       <details>
         <summary>How do I get in on the racing?</summary>
-        <div class="a">Three ways. <strong>Bid</strong> on a racer before its heat and back it to win. <strong>Enter your own racer</strong> for $20 (cash, at drop-off), brand new in the box, dropped at the Post about a week ahead so we can clear it and give it a race name. Or <strong>sponsor</strong> a Grand Prix Duck or a Checkered Flag racer as a local business. See <a href="#how">How It Works</a> and <a href="#sponsors">Sponsors</a>.</div>
+        <div class="a">Three ways. <strong>Back a racer</strong>: in the individual races, buy $5 tickets on the racer you think wins, and split the pot if it does. In the sponsored races, bid auction-style from the floor. <strong>Enter your own racer</strong> for $20 (cash, at drop-off), brand new in the box, dropped at the Post about a week ahead so we can clear it and give it a race name, just twelve public spots exist. Or <strong>sponsor</strong> a Grand Prix Duck or a Checkered Flag racer as a local business. See <a href="#how">How It Works</a> and <a href="#sponsors">Sponsors</a>.</div>
       </details>
       <details>
         <summary>Can I bring my own racer?</summary>
@@ -603,16 +643,16 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
         <div class="a">It's an adult-humor event held in a licensed club with cash gaming. No exceptions, and photo ID gets checked at the door, yes, even if you have gray hair and grandkids.</div>
       </details>
       <details>
-        <summary>How do tickets work?</summary>
-        <div class="a">Advance tickets guarantee your seat, and seating is limited. Ticketing details drop soon, right here on this site. Grab the date on your calendar from the <a href="#details">Details</a> section so you don't miss the drop.</div>
+        <summary>What does it cost to get in?</summary>
+        <div class="a">Admission is <strong>$10 cash at the door</strong>. That gets you in for the whole night of racing. Backing a racer ($5 tickets in the individual races) and entering your own racer ($20) are separate, and cash only. Advance seating details will post right here as we finalize them, seating is limited, so grab the date on your calendar from the <a href="#details">Details</a> section.</div>
       </details>
       <details>
-        <summary>Do I have to bid?</summary>
-        <div class="a">Nobody's forcing you, but this is not a spectator sport. Bidding starts at just $10, backing a racer is the whole fun, and every dollar drives to Mom's House. Bring cash; you'll want it when the bidding war starts.</div>
+        <summary>Do I have to back a racer?</summary>
+        <div class="a">Nobody's forcing you, but this is not a spectator sport. In the individual races you back a racer with $5 tickets, pick a winner and you split the pot. In the sponsored races you bid from the floor. It's the whole fun, and every dollar drives to Mom's House. Bring cash; you'll want it when the racing heats up.</div>
       </details>
       <details>
         <summary>Where does the money actually go?</summary>
-        <div class="a">Net proceeds go to <a href="moms-house.html">Mom's House of Phoenixville</a>: free, state-licensed childcare so single parents can finish school. They receive zero government funding. Your bids literally keep the lights on.</div>
+        <div class="a">Net proceeds go to <a href="moms-house.html">Mom's House of Phoenixville</a>: free, state-licensed childcare so single parents can finish school. They receive zero government funding. Every dollar you spend backing a racer keeps the lights on.</div>
       </details>
       <details>
         <summary>Food? Drinks? Parking?</summary>
@@ -661,9 +701,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
 <div id="race-car" aria-hidden="true"><svg width="64" height="28"><use href="#gvgp-car"/></svg></div>
 <script>
 // ==== CONFIG: paste your Tally form link between the quotes to activate the notify button ====
-const TALLY_URL = "https://tally.so/r/7R5A00";
+const TALLY_URL = "";
 // ==== CONFIG: paste your sponsor contact email between the quotes to activate sponsor inquiries ====
-const SPONSOR_EMAIL = "brianrcooney@gmail.com";
+const SPONSOR_EMAIL = "";
 // =============================================================================================
 const nb=document.getElementById('notify-btn');
 if(TALLY_URL){nb.href=TALLY_URL;nb.classList.add('ready');}
