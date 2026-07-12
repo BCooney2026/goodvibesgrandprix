@@ -272,6 +272,610 @@ footer{background:rgba(10,10,12,.9);padding:44px 0 30px;border-top:2px solid var
 .cal-links a:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;animation:none !important;transition:none !important}.reveal{opacity:1;transform:none}}
 a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-offset:2px}
+/* GVGP duck slots + entry callout (rev 4) */
+.duck-card.claimed{border-top-color:var(--gold)}
+.duck-card .slot-status{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:.62rem;padding:5px 12px;border-radius:999px;display:inline-block;margin:0 auto 14px}
+.duck-card.open .slot-status{background:var(--gold);color:var(--ink)}
+.duck-card.claimed .slot-status{background:var(--red);color:var(--cream-2)}
+.duck-card h3{font-family:'Anton',sans-serif;font-size:1.15rem;line-height:1.05;text-transform:uppercase;color:var(--cream-2);margin-bottom:8px}
+.duck-card .duck-sub{font-family:'Oswald',sans-serif;font-size:.82rem;line-height:1.5;color:var(--cream);opacity:.85}
+.duck-card .duck-biz{font-family:'Anton',sans-serif;font-size:1.35rem;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.entry-callout{margin-top:28px;background:linear-gradient(135deg,rgba(224,90,0,.18),rgba(0,0,0,.35));border:1px solid var(--line);border-left:5px solid var(--orange);border-radius:6px;padding:30px 30px}
+.entry-callout h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.6rem;color:var(--cream-2);margin-bottom:6px}
+.entry-callout .price{color:var(--orange-hi)}
+.entry-callout p{opacity:.92;margin-bottom:8px;max-width:66ch}
+.entry-callout .cash{display:inline-block;margin-top:8px;background:var(--gold);color:var(--ink);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:.82rem;padding:7px 16px;border-radius:4px}
+</style>
+</head>
+<body>
+<div id="bg-scroll"></div>
+<div id="bg-glow"></div>
+<svg style="display:none" aria-hidden="true"><symbol id="gvgp-car" viewBox="0 0 64 28">
+  <line x1="1" y1="10" x2="11" y2="10" stroke="#F07A1A" stroke-width="2" opacity=".7"/>
+  <line x1="3" y1="15" x2="10" y2="15" stroke="#F07A1A" stroke-width="2" opacity=".45"/>
+  <circle cx="9" cy="19" r="2" fill="#F0D8A8" opacity=".35"/>
+  <path d="M15 10 L11 4 L19 8 Z" fill="#B8912B" stroke="#8A6A1E" stroke-width=".8"/>
+  <path d="M14 19 Q14 10 24 9 L40 8 Q54 8 58 15 L58 19 Z" fill="#D8C090" stroke="#8A6A1E" stroke-width="1"/>
+  <circle cx="36" cy="7" r="5" fill="#F0C030" stroke="#8A6A1E" stroke-width=".8"/>
+  <path d="M31 7 a5 5 0 0 1 10 0 Z" fill="#001830"/>
+  <path d="M41 8 L47 7 L41 10 Z" fill="#E05A00"/>
+  <circle cx="34" cy="8.5" r="1" fill="#0A0A0C"/>
+  <circle cx="22" cy="21" r="6" fill="#0A0A0C" stroke="#444" stroke-width="1.4"/>
+  <circle cx="48" cy="21" r="5.5" fill="#0A0A0C" stroke="#444" stroke-width="1.4"/>
+  <circle cx="22" cy="21" r="2" fill="#D8C090"/>
+  <circle cx="48" cy="21" r="2" fill="#D8C090"/>
+</symbol></svg>
+<div class="checker" aria-hidden="true"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand"><img src="assets/logo.webp" alt="Good Vibes Grand Prix logo"> Good Vibes Grand Prix</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <nav class="nav-links" id="navlinks">
+      <a href="moms-house.html">The Cause</a>
+      <a href="#how">How It Works</a>
+      <a href="#details">Details</a>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#faq">FAQ</a>
+      <a href="#reserve" class="nav-cta">Reserve</a>
+    </nav>
+  </div>
+</header>
+<main id="top">
+<section class="hero">
+  <div class="speedlines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="motes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow-top">★ Phoenixville VFW Post 1564 presents ★</div>
+      <h1 class="sr-only">World Famous Good Vibes Grand Prix</h1>
+      <div class="sign-stage"><img class="hero-logo" src="assets/logo.webp" alt="" aria-hidden="true"></div>
+      <p class="hero-tag">Thrills &amp; Prizes · A Charity Race Night at Phoenixville VFW Post 1564</p>
+      <div class="countdown" id="countdown" aria-label="Countdown to race night">
+        <div class="cd-cell"><div class="n" id="cd-d">0</div><div class="l">Days</div></div>
+        <div class="cd-cell"><div class="n" id="cd-h">0</div><div class="l">Hours</div></div>
+        <div class="cd-cell"><div class="n" id="cd-m">0</div><div class="l">Min</div></div>
+        <div class="cd-cell"><div class="n" id="cd-s">0</div><div class="l">Sec</div></div>
+      </div>
+      <div class="cd-note" id="cd-note">Until the green flag drops</div>
+      <div class="hero-facts">
+        <div class="fact"><div class="k">AUG 29</div><div class="l">Saturday 2026</div></div>
+        <div class="fact"><div class="k">6 PM</div><div class="l">Gates Open</div></div>
+        <div class="fact"><div class="k">7 PM</div><div class="l">Races Start</div></div>
+        <div class="fact"><div class="k">21+</div><div class="l">ID Required</div></div>
+      </div>
+      <div class="founding-badge">🏁 FIRST ANNUAL · BE A FOUNDING RACER</div>
+      <div class="btn-row">
+        <a href="#reserve" class="btn btn-primary">Reserve Your Seat</a>
+        <a href="moms-house.html" class="btn btn-ghost">The Cause</a>
+      </div>
+    </div>
+    <div class="hero-poster">
+      <span class="poster-pin" aria-hidden="true"></span>
+      <img src="assets/poster.jpg" alt="Good Vibes Grand Prix vintage race poster: a patriotic rubber duck driving a gold race car, August 29 at Phoenixville VFW Post 1564, benefiting Mom's House Phoenixville.">
+    </div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<section id="what">
+  <div class="wrap reveal">
+    <div class="sec-label">What On Earth Is This</div>
+    <h2 class="sec-title">A Race Like No Other</h2>
+    <p class="lede">Part vintage speed-shop spectacle, part charity throwdown, all good vibes. Our field of, ahem, <em>self-propelled</em> novelty racers buzz down the track under their own power while the crowd bids, cheers, and roars. It's cheeky, it's loud, and every dollar drives toward a serious cause. Bring your competitive streak and a sense of humor. Leave the kids at home.</p>
+    <a href="moms-house.html" style="text-decoration:none"><div class="cause-badge">100% of net proceeds benefit <b>Mom's House · Phoenixville</b> →</div></a>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<section id="cause">
+  <div class="wrap reveal">
+    <div class="sec-label">Why We Race</div>
+    <h2 class="sec-title">For Mom's House</h2>
+    <div class="panel">
+      <div class="cause-grid">
+        <div class="cause-body">
+          <img src="assets/momshouse-logo-white.webp" alt="Mom's House of Phoenixville" style="width:min(300px,80%);height:auto;display:block;margin-bottom:16px">
+          <p class="kick">A hand up, not a handout, since 1987</p>
+          <p>Mom's House of Phoenixville provides <strong>free, state-licensed childcare</strong> so single, low-income parents can finish school and build a career. They receive <strong>zero government funding</strong>; every dollar comes from donors and neighbors. That's where race night comes in.</p>
+          <div class="btn-row" style="margin-top:18px">
+            <a href="moms-house.html" class="btn btn-primary">Meet Mom's House →</a>
+          </div>
+        </div>
+        <div class="cause-stat">
+          <div class="big">2%</div>
+          <div class="cap">Of teen mothers earn a college degree by 30. Mom's House exists to change that.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<section id="how">
+  <div class="wrap reveal">
+    <div class="sec-label">The Format</div>
+    <h2 class="sec-title">How The Race Runs</h2>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>A Full Card Of Races</h3><p>A night of heats, four racers per race, each one lined up on the track and ready to buzz. Sponsor ducks, business racers, and public entries all take their turn.</p></div>
+      <div class="step"><div class="num">02</div><h3>Bid To Back A Racer</h3><p>Before each heat, racers go up for auction, bidding opens at $10. Back your favorite, then watch it run.</p></div>
+      <div class="step"><div class="num">03</div><h3>They're Off</h3><p>Loud music, confetti, the crack of the gong, the racers vibrate their way to the finish line. Winner takes the glory.</p></div>
+    </div>
+    <div class="finale">
+      <h3>The Finale: Slowest Wins</h3>
+      <p>We flip the script for the last race of the night. Dead last across the line takes the crown. Anything can happen, and usually does.</p>
+    </div>
+    <div class="entry-callout">
+      <h3>Race Your Own Racer &mdash; <span class="price">$20</span></h3>
+      <p>Don't just watch, get in the race. Bring your own novelty racer, brand new in the box, and drop it off at the Post at least a week before race night to get it cleared and named. Then watch it fly (or crawl) down the track with your name on it.</p>
+      <p style="opacity:.8;font-size:.95rem">Public racer spots are limited and first-come. Simple rules apply, we'll walk you through them at drop-off.</p>
+      <span class="cash">$20 Cash at Drop-Off · Cash Only</span>
+    </div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<!-- GRAND PRIX DUCKS (sponsor slots) -->
+<section id="racers">
+  <div class="wrap reveal">
+    <div class="sec-label">The Grand Prix</div>
+    <h2 class="sec-title">Field A Grand Prix Duck</h2>
+    <p class="lede">The marquee race belongs to four local businesses. Claim a Grand Prix Duck, brand it in your colors, and put your name on a featured racer in front of a packed, generous crowd. Only four exist, and they go first-come.</p>
+    <div class="racer-grid">
+      <article class="racer-card duck-card open">
+        <span class="racer-num">Grand Prix Duck 1</span>
+        <svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg>
+        <span class="slot-status">Available</span>
+        <h3>Your Business Here</h3>
+        <p class="duck-sub">Claim this duck &amp; brand it as your team.</p>
+      </article>
+      <article class="racer-card duck-card open">
+        <span class="racer-num">Grand Prix Duck 2</span>
+        <svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg>
+        <span class="slot-status">Available</span>
+        <h3>Your Business Here</h3>
+        <p class="duck-sub">Claim this duck &amp; brand it as your team.</p>
+      </article>
+      <article class="racer-card duck-card open">
+        <span class="racer-num">Grand Prix Duck 3</span>
+        <svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg>
+        <span class="slot-status">Available</span>
+        <h3>Your Business Here</h3>
+        <p class="duck-sub">Claim this duck &amp; brand it as your team.</p>
+      </article>
+      <article class="racer-card duck-card open">
+        <span class="racer-num">Grand Prix Duck 4</span>
+        <svg class="sil" width="76" height="34" aria-hidden="true"><use href="#gvgp-car"/></svg>
+        <span class="slot-status">Available</span>
+        <h3>Your Business Here</h3>
+        <p class="duck-sub">Claim this duck &amp; brand it as your team.</p>
+      </article>
+    </div>
+    <div class="sponsor-cta"><a href="#sponsors" class="btn btn-primary">Become A Grand Prix Sponsor</a></div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<section id="details">
+  <div class="wrap reveal">
+    <div class="sec-label">The Fine Print</div>
+    <h2 class="sec-title">Where &amp; When</h2>
+    <div class="detail-grid">
+      <div class="card">
+        <h3>When</h3>
+        <p class="big">Saturday, August 29, 2026</p>
+        <p>Gates open <strong>6:00 PM</strong></p>
+        <p>Races start <strong>7:00 PM</strong></p>
+        <p style="margin-top:14px"><span class="pill">21+ · ID Required</span></p>
+        <div class="cal-links" style="justify-content:flex-start">
+          <a href="good-vibes-grand-prix.ics" download>📅 Apple / Outlook</a>
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Good+Vibes+Grand+Prix&dates=20260829T220000Z/20260830T030000Z&details=First+Annual+Good+Vibes+Grand+Prix+%E2%80%94+charity+race+night+at+Phoenixville+VFW+Post+1564.+21%2B.+Benefiting+Mom%27s+House+Phoenixville.+goodvibesgrandprix.com&location=Phoenixville+VFW+Post+1564%2C+200+Starr+St%2C+Phoenixville%2C+PA+19460" target="_blank" rel="noopener">📅 Google Calendar</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Where</h3>
+        <p class="big">Phoenixville VFW · Post 1564</p>
+        <p>200 Starr St</p>
+        <p>Phoenixville, PA 19460</p>
+        <iframe class="map-embed" loading="lazy" title="Map to Phoenixville VFW Post 1564, 200 Starr St, Phoenixville PA" src="https://www.google.com/maps?q=200+Starr+St,+Phoenixville,+PA+19460&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<section id="sponsors">
+  <div class="wrap reveal">
+    <div class="sec-label">Pit Crew</div>
+    <h2 class="sec-title">Become A Sponsor</h2>
+    <p class="lede">Local businesses power this race. Sponsors get their name in front of a packed, generous crowd, and the good karma of backing free childcare for parents chasing a degree. Three ways to get on the grid:</p>
+    <div class="steps" style="margin-top:26px">
+      <div class="step"><div class="num">$200</div><h3>Grand Prix</h3><p>Claim &amp; brand one of four racing ducks in the marquee race. VIP table for six, premium placement, emcee shout-outs, and featured social. Only four, ever.</p></div>
+      <div class="step"><div class="num">$100</div><h3>Checkered Flag</h3><p>Field your own racer in a Checkered Flag heat. Your logo on the site, event recognition, and a social thank-you. Limited spots.</p></div>
+      <div class="step"><div class="num">$50</div><h3>Pit Crew</h3><p>Get your business name on the event website and sponsor signage, with recognition during the night's thank-yous.</p></div>
+    </div>
+    <div class="sponsor-cta"><a href="#reserve" id="sponsor-btn" class="btn btn-ghost">Ask About Sponsoring</a></div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap reveal">
+    <div class="sec-label">Pit Wall Questions</div>
+    <h2 class="sec-title">FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Okay, what are the "racers," really?</summary>
+        <div class="a">Let's not be coy about it: the racers are novelty vibrators. Yes, those. It's the same wildly popular charity format that packs houses in Key West, and it turns out a room full of buzzing little racers tearing down a track is one of the funniest things you'll ever cheer for. The humor lives in the racing, the vintage duck, the checkered flags, the photo finish. It's cheeky and it's a blast, and it's all in good fun for a serious cause. Come with a sense of humor.</div>
+      </details>
+      <details>
+        <summary>Wait, is this a real thing?</summary>
+        <div class="a">Completely. It's a proven charity format made famous in Key West, where it sells out weeks in advance. Ours is the first annual Pennsylvania edition, conducted by Phoenixville VFW Post 1564, with net proceeds going to <a href="moms-house.html">Mom's House of Phoenixville</a>. First year is the one people brag about being at.</div>
+      </details>
+      <details>
+        <summary>How do I get in on the racing?</summary>
+        <div class="a">Three ways. <strong>Bid</strong> on a racer before its heat and back it to win. <strong>Enter your own racer</strong> for $20 (cash, at drop-off), brand new in the box, dropped at the Post about a week ahead so we can clear it and give it a race name. Or <strong>sponsor</strong> a Grand Prix Duck or a Checkered Flag racer as a local business. See <a href="#how">How It Works</a> and <a href="#sponsors">Sponsors</a>.</div>
+      </details>
+      <details>
+        <summary>Can I bring my own racer?</summary>
+        <div class="a">Yes! Public entrants ($20) and Checkered Flag sponsors ($100) bring their own. It must be a novelty vibrator, brand new and sealed in the box, dropped off at the Post at least seven days before race night so it can be inspected and cleared. A few simple rules keep the racing fair (self-powered, fits the lane, nothing unsafe), and we'll walk you through them at drop-off. Grand Prix sponsors are the exception: we provide those four ducks.</div>
+      </details>
+      <details>
+        <summary>Why 21+?</summary>
+        <div class="a">It's an adult-humor event held in a licensed club with cash gaming. No exceptions, and photo ID gets checked at the door, yes, even if you have gray hair and grandkids.</div>
+      </details>
+      <details>
+        <summary>How do tickets work?</summary>
+        <div class="a">Advance tickets guarantee your seat, and seating is limited. Ticketing details drop soon, right here on this site. Grab the date on your calendar from the <a href="#details">Details</a> section so you don't miss the drop.</div>
+      </details>
+      <details>
+        <summary>Do I have to bid?</summary>
+        <div class="a">Nobody's forcing you, but this is not a spectator sport. Bidding starts at just $10, backing a racer is the whole fun, and every dollar drives to Mom's House. Bring cash; you'll want it when the bidding war starts.</div>
+      </details>
+      <details>
+        <summary>Where does the money actually go?</summary>
+        <div class="a">Net proceeds go to <a href="moms-house.html">Mom's House of Phoenixville</a>: free, state-licensed childcare so single parents can finish school. They receive zero government funding. Your bids literally keep the lights on.</div>
+      </details>
+      <details>
+        <summary>Food? Drinks? Parking?</summary>
+        <div class="a">It's a VFW post, you will not go hungry or thirsty. Full details on food, drink, and parking will be posted along with ticketing info.</div>
+      </details>
+    </div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<!-- SPREAD THE WORD -->
+<section id="spread">
+  <div class="wrap reveal" style="text-align:center">
+    <div class="sec-label">Help Us Fill The Room</div>
+    <h2 class="sec-title">Spread The Word</h2>
+    <p class="lede" style="margin:0 auto">Year one is the one people brag about being at. A bigger crowd means a bigger pot for Mom's House, so send this to somebody who needs a wild Saturday for a good cause.</p>
+    <div class="share-row">
+      <button class="share-btn" onclick="shareRace()">📤 Share This Race</button>
+      <button class="share-btn" onclick="copyRaceLink(this)">🔗 Copy Link</button>
+    </div>
+    <div style="margin-top:32px">
+      <div class="qr-box"><img src="assets/qr-code.png" alt="QR code linking to goodvibesgrandprix.com" loading="lazy"></div>
+      <p style="opacity:.7;font-size:.85rem;margin-top:12px">Scan to share, or <a href="assets/qr-code.png" download style="color:var(--orange-hi)">download for flyers &amp; print</a></p>
+    </div>
+  </div>
+</section>
+<div class="checker" aria-hidden="true"></div>
+<section id="reserve">
+  <div class="wrap reveal">
+    <div class="sec-label">Get In The Grandstand</div>
+    <h2 class="sec-title">Reserve Your Seat</h2>
+    <p class="lede" style="margin:0 auto">Seating is limited and this one's going to move fast. Advance tickets will be required to guarantee a spot.</p>
+    <div class="soon-box">
+      <img src="assets/logo.webp" alt="" aria-hidden="true" style="width:150px;height:auto;display:block;margin:0 auto 18px;filter:drop-shadow(0 8px 16px rgba(0,0,0,.5))">
+      <span class="pill">Tickets Coming Soon</span>
+      <p>We're finalizing ticketing now. Be first in line when they drop:</p>
+      <a id="notify-btn" class="btn btn-primary" href="#" target="_blank" rel="noopener">🔔 Notify Me When Tickets Drop</a>
+      <p style="opacity:.7;font-size:.9rem;margin-top:14px">Or lock in the date right now:</p>
+      <div class="cal-links">
+        <a href="good-vibes-grand-prix.ics" download>📅 Apple / Outlook</a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Good+Vibes+Grand+Prix&dates=20260829T220000Z/20260830T030000Z&details=First+Annual+Good+Vibes+Grand+Prix+%E2%80%94+charity+race+night+at+Phoenixville+VFW+Post+1564.+21%2B.+Benefiting+Mom%27s+House+Phoenixville.+goodvibesgrandprix.com&location=Phoenixville+VFW+Post+1564%2C+200+Starr+St%2C+Phoenixville%2C+PA+19460" target="_blank" rel="noopener">📅 Google Calendar</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<div class="checker" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo.webp" alt="Good Vibes Grand Prix logo">
+        <div class="txt">Good Vibes<br>Grand Prix<small>Presented by Phoenixville VFW Post 1564<br>Ettinger · Powers · Campbell</small></div>
+      </div>
+      <div class="legal">
+        <p><strong>Good Vibes Grand Prix</strong> is a charity gaming event conducted by Phoenixville VFW Post 1564 (Ettinger-Powers-Campbell) under its Pennsylvania Small Games of Chance license. The Post is the licensed operator. Must be 21 or older to attend; valid photo ID required at the door.</p>
+        <p style="margin-top:10px">100% of net proceeds benefit Mom's House, Phoenixville. Event format, auction, and prizes are subject to final confirmation by Post leadership and applicable county authorities. Please play responsibly.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Phoenixville VFW Post 1564 · Good Vibes Grand Prix · 200 Starr St, Phoenixville, PA 19460</div>
+  </div>
+</footer>
+<div id="race-track" aria-hidden="true"></div>
+<div id="race-car" aria-hidden="true"><svg width="64" height="28"><use href="#gvgp-car"/></svg></div>
+<script>
+// ==== CONFIG: paste your Tally form link between the quotes to activate the notify button ====
+const TALLY_URL = "";
+// ==== CONFIG: paste your sponsor contact email between the quotes to activate sponsor inquiries ====
+const SPONSOR_EMAIL = "";
+// =============================================================================================
+const nb=document.getElementById('notify-btn');
+if(TALLY_URL){nb.href=TALLY_URL;nb.classList.add('ready');}
+const spBtn=document.getElementById('sponsor-btn');
+if(SPONSOR_EMAIL){
+  spBtn.href=`mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent('Sponsoring the Good Vibes Grand Prix')}&body=${encodeURIComponent("Hi! I'd like to talk about sponsoring the Good Vibes Grand Prix on August 29. Here's a bit about our business:\n\n")}`;
+}
+function shareRace(){
+  const data={title:"Good Vibes Grand Prix",text:"First Annual Good Vibes Grand Prix, Aug 29 at Phoenixville VFW Post 1564. 21+, benefiting Mom's House Phoenixville.",url:"https://goodvibesgrandprix.com"};
+  if(navigator.share){navigator.share(data).catch(()=>{});}
+  else{copyRaceLink(document.querySelector('.share-row .share-btn:last-child'));}
+}
+function copyRaceLink(btn){
+  navigator.clipboard.writeText("https://goodvibesgrandprix.com").then(()=>{
+    if(!btn)return;
+    const orig=btn.textContent;
+    btn.textContent="✅ Copied!";
+    setTimeout(()=>btn.textContent=orig,1800);
+  });
+}
+const target=new Date('2026-08-29T19:00:00-04:00').getTime();
+const dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s'),note=document.getElementById('cd-note');
+function pad(n){return String(n).padStart(2,'0')}
+function tick(){
+  const diff=target-Date.now();
+  if(diff<=0){dEl.textContent='0';hEl.textContent='00';mEl.textContent='00';sEl.textContent='00';note.textContent='They\u2019re off! Race night is here.';return}
+  dEl.textContent=Math.floor(diff/86400000);
+  hEl.textContent=pad(Math.floor(diff%86400000/3600000));
+  mEl.textContent=pad(Math.floor(diff%3600000/60000));
+  sEl.textContent=pad(Math.floor(diff%60000/1000));
+  sEl.classList.remove('flip');void sEl.offsetWidth;sEl.classList.add('flip');
+}
+tick();setInterval(tick,1000);
+const glow=document.getElementById('bg-glow');
+const car=document.getElementById('race-car');
+function onScroll(){const p=window.scrollY/(document.body.scrollHeight-window.innerHeight||1);glow.style.setProperty('--glow-y',(10+p*80).toFixed(1)+'%');car.style.setProperty('--race-x',Math.min(1,Math.max(0,p)).toFixed(4));}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+</script>
+</body>
+</html>      "streetAddress": "200 Starr St",
+      "addressLocality": "Phoenixville",
+      "addressRegion": "PA",
+      "postalCode": "19460",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Phoenixville VFW Post 1564 (Ettinger-Powers-Campbell)"
+  }
+}
+</script>
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:ital,wght@0,400;0,600;1,400&family=Bebas+Neue&family=Anton&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#001830; --navy-2:#002845; --ink:#0A0A0C;
+  --orange:#E05A00; --orange-hi:#F07A1A; --red:#C01800;
+  --cream:#F0D8A8; --cream-2:#F5E8CC; --gold:#D8C090;
+  --line:rgba(240,216,168,.28);
+  --shadow:0 18px 50px rgba(0,0,0,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;color:var(--cream);line-height:1.6;overflow-x:hidden;position:relative;background:var(--navy)}
+#bg-scroll{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#001830 0%,#002845 22%,#06263e 40%,#3a1c0a 60%,#5a1200 78%,#0A0A0C 100%)}
+#bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1200px 600px at 50% var(--glow-y,20%),rgba(224,90,0,.16),transparent 60%)}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.045;background-image:radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 1px),radial-gradient(circle at 70% 60%,#fff 0 1px,transparent 1px),radial-gradient(circle at 40% 80%,#000 0 1px,transparent 1px);background-size:7px 7px,11px 11px,13px 13px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+.checker{height:16px;width:100%;background:conic-gradient(var(--ink) 90deg,transparent 90deg 180deg,var(--ink) 180deg 270deg,transparent 270deg) 0 0/32px 32px,var(--cream);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);position:relative;z-index:2;animation:checkcrawl 14s linear infinite}
+@keyframes checkcrawl{to{background-position:64px 0,0 0}}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(0,10,24,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;max-width:1120px;margin:0 auto}
+.nav-brand{display:flex;align-items:center;gap:12px;font-family:'Anton',sans-serif;letter-spacing:.5px;font-size:1.05rem;color:var(--cream);text-transform:uppercase}
+.nav-brand img{height:50px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--cream);text-decoration:none;font-family:'Oswald',sans-serif;font-weight:600;font-size:.8rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.82;transition:opacity .2s,color .2s}
+.nav-links a:hover{opacity:1;color:var(--orange-hi)}
+.nav-cta{background:var(--orange);color:#fff !important;padding:9px 18px;border-radius:2px;opacity:1 !important;box-shadow:0 3px 0 #8f3800}
+.nav-toggle{display:none;background:none;border:0;color:var(--cream);font-size:1.6rem;cursor:pointer}
+@media(max-width:860px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--navy-2);padding:18px 24px;gap:18px;border-bottom:2px solid var(--orange)}.nav-links.open{display:flex}.nav-toggle{display:block}}
+.hero{position:relative;padding:56px 0 44px;overflow:hidden}
+.speedlines{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5}
+.speedlines span{position:absolute;height:2px;background:linear-gradient(90deg,transparent,var(--orange-hi),transparent);border-radius:2px;animation:zoom 2.6s linear infinite}
+.speedlines span:nth-child(1){top:18%;width:220px;animation-delay:0s;opacity:.5}
+.speedlines span:nth-child(2){top:34%;width:160px;animation-delay:.6s;opacity:.35}
+.speedlines span:nth-child(3){top:52%;width:280px;animation-delay:1.1s;opacity:.45}
+.speedlines span:nth-child(4){top:68%;width:140px;animation-delay:.3s;opacity:.3}
+.speedlines span:nth-child(5){top:82%;width:200px;animation-delay:1.6s;opacity:.4}
+@keyframes zoom{0%{transform:translateX(-320px)}100%{transform:translateX(105vw)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative;z-index:2}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:26px;text-align:center}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* sign + rotating vintage sunburst */
+.sign-stage{position:relative;display:inline-block}
+@media(max-width:900px){.sign-stage{display:block;text-align:center}}
+.sign-stage::before{content:"";position:absolute;left:50%;top:50%;width:150%;aspect-ratio:1;transform:translate(-50%,-50%);background:repeating-conic-gradient(from 0deg,rgba(240,216,168,.09) 0deg 7.5deg,transparent 7.5deg 15deg);border-radius:50%;-webkit-mask:radial-gradient(circle,#000 25%,transparent 66%);mask:radial-gradient(circle,#000 25%,transparent 66%);animation:rayspin 46s linear infinite;z-index:-1;pointer-events:none}
+@keyframes rayspin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.hero-logo{width:100%;max-width:460px;height:auto;display:block;margin:6px 0 4px;filter:drop-shadow(0 16px 30px rgba(0,0,0,.6));animation:signfloat 5.5s ease-in-out infinite}
+@media(max-width:900px){.hero-logo{margin:6px auto 4px;max-width:340px}}
+@keyframes signfloat{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-8px) rotate(.4deg)}}
+/* drifting track dust */
+.motes{position:absolute;inset:0;z-index:0;pointer-events:none}
+.motes i{position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;background:rgba(240,216,168,.35);filter:blur(1px);animation:drift 11s linear infinite}
+.motes i:nth-child(1){left:8%;animation-delay:0s}
+.motes i:nth-child(2){left:24%;animation-delay:2.2s;width:4px;height:4px}
+.motes i:nth-child(3){left:41%;animation-delay:4.8s}
+.motes i:nth-child(4){left:58%;animation-delay:1.4s;width:3px;height:3px}
+.motes i:nth-child(5){left:76%;animation-delay:6s}
+.motes i:nth-child(6){left:90%;animation-delay:3.4s;width:4px;height:4px}
+@keyframes drift{0%{transform:translateY(0);opacity:0}12%{opacity:.7}85%{opacity:.4}100%{transform:translateY(-88vh) translateX(24px);opacity:0}}
+/* scroll racer: your scroll is the race */
+#race-track{position:fixed;left:0;right:0;bottom:0;height:5px;background:rgba(240,216,168,.14);z-index:60;pointer-events:none}
+#race-track::after{content:"";position:absolute;right:0;top:-3px;width:12px;height:11px;background:conic-gradient(#0A0A0C 90deg,#F5E8CC 90deg 180deg,#0A0A0C 180deg 270deg,#F5E8CC 270deg) 0 0/6px 5.5px}
+#race-car{position:fixed;bottom:3px;left:0;z-index:61;pointer-events:none;transform:translateX(calc(var(--race-x,0)*(100vw - 70px)))}
+#race-car svg{display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
+.eyebrow-top{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:.8rem;color:var(--orange-hi);margin-bottom:4px}
+.eyebrow{font-family:'Bebas Neue',sans-serif;letter-spacing:4px;font-size:1.3rem;color:var(--gold);margin-bottom:8px}
+.hero h1{font-family:'Anton',sans-serif;text-transform:uppercase;line-height:.92;font-size:clamp(3rem,8vw,5.6rem);color:var(--cream-2);text-shadow:3px 3px 0 var(--red),6px 6px 0 rgba(0,0,0,.4)}
+.hero h1 .vibes{color:var(--orange);display:block}
+.hero-tag{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:clamp(.95rem,2vw,1.15rem);margin:18px 0 6px;color:var(--cream)}
+.countdown{display:flex;gap:10px;margin:20px 0 8px;justify-content:flex-start}
+@media(max-width:900px){.countdown{justify-content:center}}
+.cd-cell{background:rgba(0,0,0,.4);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:4px;padding:10px 14px;min-width:74px;text-align:center}
+.cd-cell .n{font-family:'Anton',sans-serif;font-size:2rem;line-height:1;color:var(--cream-2)}
+.cd-cell .l{font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.cd-note{font-family:'Oswald',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:.75rem;color:var(--orange-hi);margin-bottom:18px}
+.hero-facts{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 24px}
+@media(max-width:900px){.hero-facts{justify-content:center}}
+.fact{background:rgba(0,0,0,.32);border:1px solid var(--line);border-radius:3px;padding:9px 15px;text-align:center;min-width:90px}
+.fact .k{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;line-height:1;color:var(--orange-hi)}
+.fact .l{font-family:'Oswald',sans-serif;font-size:.66rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--cream);opacity:.8}
+.founding-badge{display:inline-block;margin:2px 0 22px;background:linear-gradient(90deg,var(--gold),#8A6A1E);color:var(--ink);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.78rem;padding:9px 18px;border-radius:20px;box-shadow:0 3px 0 rgba(0,0,0,.3)}
+/* share row */
+.share-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.share-btn{font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--line);border-radius:20px;padding:9px 18px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.share-btn:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.qr-box{background:var(--cream-2);border-radius:8px;padding:20px;display:inline-block;box-shadow:var(--shadow)}
+.qr-box img{width:150px;height:150px;display:block}
+.btn-row{display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:900px){.btn-row{justify-content:center}}
+.btn{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:.9rem;padding:15px 30px;border-radius:2px;border:0;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .12s;position:relative;overflow:hidden}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .55s ease}
+.btn:hover::after{left:130%}
+/* countdown tick pulse */
+@keyframes numpulse{0%{transform:scale(1)}40%{transform:scale(1.18);color:var(--orange-hi)}100%{transform:scale(1)}}
+.cd-cell .n.flip{animation:numpulse .38s ease}
+/* staggered grid reveals */
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.reveal.in .step,.reveal.in .card,.reveal.in .sponsor-slot{animation:riseIn .55s both}
+.reveal.in .step:nth-child(2),.reveal.in .card:nth-child(2),.reveal.in .sponsor-slot:nth-child(2){animation-delay:.12s}
+.reveal.in .step:nth-child(3),.reveal.in .sponsor-slot:nth-child(3){animation-delay:.24s}
+.reveal.in .sponsor-slot:nth-child(4){animation-delay:.36s}
+/* mobile polish */
+@media(max-width:480px){
+  .hero{padding:36px 0 30px}
+  .cd-cell{min-width:62px;padding:8px 9px}
+  .cd-cell .n{font-size:1.55rem}
+  .countdown{gap:8px}
+  .fact{min-width:0;flex:1 1 42%}
+  .hero-poster img{max-width:88%}
+  .nav-brand{font-size:.88rem;gap:9px}
+  .nav-brand img{height:42px}
+  section{padding:52px 0}
+}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 4px 0 #8f3800}
+.btn-primary:active{transform:translateY(3px);box-shadow:0 1px 0 #8f3800}
+.btn-ghost{background:transparent;color:var(--cream);border:2px solid var(--gold)}
+.btn-ghost:hover{background:var(--gold);color:var(--ink)}
+.hero-poster{position:relative;z-index:2}
+.hero-poster img{width:100%;max-width:430px;border-radius:4px;display:block;margin:0 auto;box-shadow:var(--shadow);border:3px solid var(--ink);transform:rotate(-1.5deg)}
+.poster-pin{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:18px;height:18px;background:radial-gradient(circle at 35% 30%,#fff,#b00 60%,#600);border-radius:50%;box-shadow:0 3px 6px rgba(0,0,0,.5);z-index:3}
+section{padding:70px 0;position:relative;z-index:2}
+.sec-label{font-family:'Bebas Neue',sans-serif;letter-spacing:5px;color:var(--orange-hi);font-size:1.1rem;margin-bottom:10px}
+.sec-title{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(2rem,5vw,3.2rem);line-height:1;color:var(--cream-2);margin-bottom:26px}
+.lede{font-size:1.15rem;max-width:60ch}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.cause-badge{display:inline-block;margin-top:22px;background:var(--cream);color:var(--navy);font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:12px 22px;border-radius:3px;font-size:.95rem;box-shadow:0 4px 0 rgba(0,0,0,.35)}
+.cause-badge b{color:var(--red)}
+.panel{background:rgba(0,16,32,.5);backdrop-filter:blur(2px);border:1px solid var(--line);border-radius:8px;padding:40px 34px}
+@media(max-width:640px){.panel{padding:28px 20px}}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:20px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+.step{background:rgba(0,0,0,.3);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:4px;padding:26px 22px}
+.step .num{font-family:'Anton',sans-serif;font-size:2.4rem;color:var(--orange);line-height:1}
+.step h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px;font-size:1.15rem;margin:6px 0 8px;color:var(--cream-2)}
+.step p{font-size:.98rem;opacity:.9}
+.finale{margin-top:26px;background:linear-gradient(90deg,var(--red),#7a0f00);border-radius:4px;padding:22px 26px;border-left:5px solid var(--gold)}
+.finale h3{font-family:'Anton',sans-serif;text-transform:uppercase;letter-spacing:1px;color:var(--cream-2);font-size:1.4rem}
+.finale p{color:var(--cream);opacity:.95}
+.cause-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center;margin-top:14px}
+@media(max-width:820px){.cause-grid{grid-template-columns:1fr}}
+.cause-stat{background:linear-gradient(135deg,var(--orange),var(--red));border-radius:8px;padding:34px 28px;text-align:center;box-shadow:var(--shadow)}
+.cause-stat .big{font-family:'Anton',sans-serif;font-size:3.4rem;line-height:1;color:var(--cream-2)}
+.cause-stat .cap{font-family:'Oswald',sans-serif;letter-spacing:1px;text-transform:uppercase;font-size:.85rem;margin-top:10px;color:var(--cream)}
+.cause-body p{margin-bottom:14px}
+.cause-body .kick{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1px;color:var(--orange-hi);font-size:.9rem;margin-bottom:8px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:14px}
+@media(max-width:820px){.detail-grid{grid-template-columns:1fr}}
+.card{background:rgba(0,0,0,.34);border:1px solid var(--line);border-radius:4px;padding:26px}
+.card h3{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange-hi);font-size:1rem;margin-bottom:14px}
+.card p{margin-bottom:6px}
+.card .big{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--cream-2);letter-spacing:1px;line-height:1.1}
+.map-embed{width:100%;height:220px;border:0;border-radius:4px;margin-top:8px;filter:grayscale(.3) contrast(1.1)}
+.pill{display:inline-block;background:var(--orange);color:#fff;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:20px;font-size:.8rem;text-transform:uppercase}
+.sponsor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:20px}
+@media(max-width:820px){.sponsor-grid{grid-template-columns:repeat(2,1fr)}}
+.sponsor-slot{background:rgba(0,0,0,.28);border:1.5px dashed var(--line);border-radius:6px;aspect-ratio:3/2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px}
+.sponsor-slot .q{font-family:'Anton',sans-serif;font-size:2rem;color:var(--gold);opacity:.5}
+.sponsor-slot .t{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--cream);opacity:.7;margin-top:6px}
+.sponsor-cta{text-align:center;margin-top:24px}
+#reserve{text-align:center}
+.soon-box{max-width:560px;margin:24px auto 0;background:rgba(0,0,0,.4);border:2px dashed var(--gold);border-radius:6px;padding:38px 30px}
+.soon-box .pill{margin-bottom:16px}
+.soon-box p{opacity:.92;margin-bottom:8px}
+.btn-disabled{background:#3a4658;color:var(--cream);box-shadow:none;cursor:not-allowed;opacity:.7;margin-top:16px}
+footer{background:rgba(10,10,12,.9);padding:44px 0 30px;border-top:2px solid var(--orange);position:relative;z-index:2}
+.foot-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.foot-brand{display:flex;align-items:center;gap:14px}
+.foot-brand img{height:96px}
+.foot-brand .txt{font-family:'Anton',sans-serif;text-transform:uppercase;color:var(--cream-2);line-height:1;font-size:1.2rem}
+.foot-brand .txt small{display:block;font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:1.5px;color:var(--gold);margin-top:5px;font-weight:600}
+.legal{max-width:60ch;font-size:.8rem;opacity:.65;line-height:1.7}
+.legal strong{color:var(--gold);opacity:1}
+.foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);font-size:.75rem;opacity:.55;text-align:center}
+/* FAQ */
+.faq{max-width:760px;margin-top:8px}
+.faq details{background:rgba(0,0,0,.3);border:1px solid var(--line);border-left:3px solid var(--orange);border-radius:4px;margin-bottom:12px;overflow:hidden}
+.faq summary{cursor:pointer;padding:16px 20px;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px;text-transform:uppercase;font-size:.95rem;color:var(--cream-2);list-style:none;position:relative;padding-right:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);font-family:'Anton',sans-serif;font-size:1.4rem;color:var(--orange-hi);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.faq .a{padding:0 20px 18px;opacity:.92}
+.faq .a a{color:var(--orange-hi)}
+/* Meet the Racers teaser */
+.racer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px}
+@media(max-width:900px){.racer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.racer-grid{grid-template-columns:1fr}}
+.racer-card{position:relative;min-height:340px;padding:24px 20px;border-radius:10px;overflow:hidden;background:radial-gradient(circle at top,rgba(224,90,0,.2),transparent 38%),linear-gradient(155deg,#012140,#001830 62%,#00101f);border:1px solid var(--line);border-top:3px solid var(--red);box-shadow:var(--shadow);color:var(--cream);isolation:isolate;text-align:center;display:flex;flex-direction:column;justify-content:center}
+.racer-card::before{content:"";position:absolute;inset:-40%;background:repeating-linear-gradient(45deg,rgba(240,216,168,.05) 0,rgba(240,216,168,.05) 2px,transparent 2px,transparent 11px);opacity:.5;transform:rotate(8deg);z-index:-1}
+.racer-card::after{content:"\1F3C1";position:absolute;right:14px;bottom:10px;font-size:2.4rem;opacity:.12}
+.racer-num{display:inline-block;margin:0 auto 14px;padding:5px 12px;border-radius:999px;background:var(--red);color:var(--cream-2);font-family:'Oswald',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.racer-card .sil{display:block;margin:0 auto 14px;filter:brightness(0) invert(.85);opacity:.35}
+.teaser h3{font-family:'Anton',sans-serif;font-size:1.25rem;line-height:1.05;text-transform:uppercase;color:var(--cream-2);margin-bottom:12px}
+.teaser .drop-date{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange-hi);opacity:.9}
+.reveal-body{display:none}
+.racer-card.is-revealed .teaser{display:none}
+.racer-card.is-revealed .reveal-body{display:block}
+.racer-card.is-revealed{border-top-color:var(--orange);cursor:pointer}
+.reveal-body h3{font-family:'Anton',sans-serif;font-size:1.5rem;line-height:1;text-transform:uppercase;color:var(--cream-2);margin-bottom:10px}
+.reveal-body .rtag{font-family:'Barlow',sans-serif;font-style:italic;font-size:.9rem;line-height:1.35;color:var(--orange-hi);margin-bottom:12px}
+.reveal-body .rbio{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .35s ease,margin-top .4s ease;font-size:.82rem;line-height:1.55;color:var(--cream);text-align:left}
+.racer-card[aria-expanded="true"] .reveal-body .rbio{max-height:500px;opacity:.95;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.reveal-body .tap-hint{font-family:'Oswald',sans-serif;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);opacity:.55;margin-top:12px}
+.racer-card[aria-expanded="true"] .reveal-body .tap-hint{display:none}
+/* per-racer reveal animations, fired on scroll via .animate-in */
+.racer-card.is-revealed.animate-in.roundhouse .reveal-body{animation:roundhouseReveal .75s ease both}
+.racer-card.is-revealed.animate-in.offer .reveal-body{animation:offerReveal 1s ease both}
+.racer-card.is-revealed.animate-in.runner .reveal-body{animation:runnerReveal .9s ease both}
+.racer-card.is-revealed.animate-in.turbo .reveal-body{animation:turboReveal .65s ease both}
+@keyframes roundhouseReveal{0%{transform:translateX(0) rotate(0);filter:brightness(1)}15%{transform:translateX(-6px) rotate(-1deg)}30%{transform:translateX(7px) rotate(1deg)}45%{transform:translateX(-4px) rotate(-.5deg)}65%{transform:translateX(0) rotate(0);filter:brightness(1.35)}100%{transform:none;filter:brightness(1)}}
+@keyframes offerReveal{0%{opacity:0;transform:translateY(18px) scale(.96);filter:blur(4px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+@keyframes runnerReveal{0%{opacity:0;transform:translateX(-24px)}25%{opacity:1;transform:translateX(6px) translateY(-5px)}50%{transform:translateX(12px) translateY(0)}75%{transform:translateX(4px) translateY(-3px)}100%{transform:translateX(0) translateY(0)}}
+@keyframes turboReveal{0%{opacity:0;transform:translateX(-45px) scale(.94);filter:blur(8px)}60%{opacity:1;transform:translateX(6px) scale(1.03);filter:blur(0)}100%{transform:translateX(0) scale(1)}}
+/* notify + calendar */
+#notify-btn{display:none}
+#notify-btn.ready{display:inline-block}
+.cal-links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.cal-links a{font-family:'Oswald',sans-serif;font-size:.78rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);text-decoration:none;border:1px solid var(--line);border-radius:20px;padding:7px 15px;transition:all .2s}
+.cal-links a:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;animation:none !important;transition:none !important}.reveal{opacity:1;transform:none}}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-offset:2px}
 </style>
 </head>
 <body>
