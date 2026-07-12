@@ -538,23 +538,6 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
   </div>
 </section>
 <div class="checker" aria-hidden="true"></div>
-<!-- SPREAD THE WORD -->
-<section id="spread">
-  <div class="wrap reveal" style="text-align:center">
-    <div class="sec-label">Help Us Fill The Room</div>
-    <h2 class="sec-title">Spread The Word</h2>
-    <p class="lede" style="margin:0 auto">Year one is the one people brag about being at. A bigger crowd means a bigger pot for Mom's House, so send this to somebody who needs a wild Saturday for a good cause.</p>
-    <div class="share-row">
-      <button class="share-btn" onclick="shareRace()">📤 Share This Race</button>
-      <button class="share-btn" onclick="copyRaceLink(this)">🔗 Copy Link</button>
-    </div>
-    <div style="margin-top:32px">
-      <div class="qr-box"><img src="assets/qr-code.png" alt="QR code linking to goodvibesgrandprix.com" loading="lazy"></div>
-      <p style="opacity:.7;font-size:.85rem;margin-top:12px">Scan to share, or <a href="assets/qr-code.png" download style="color:var(--orange-hi)">download for flyers &amp; print</a></p>
-    </div>
-  </div>
-</section>
-<div class="checker" aria-hidden="true"></div>
 <section id="reserve">
   <div class="wrap reveal">
     <div class="sec-label">Get In The Grandstand</div>
@@ -603,19 +586,6 @@ if(TALLY_URL){nb.href=TALLY_URL;nb.classList.add('ready');}
 const spBtn=document.getElementById('sponsor-btn');
 if(SPONSOR_EMAIL){
   spBtn.href=`mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent('Sponsoring the Good Vibes Grand Prix')}&body=${encodeURIComponent("Hi! I'd like to talk about sponsoring the Good Vibes Grand Prix on August 29. Here's a bit about our business:\n\n")}`;
-}
-function shareRace(){
-  const data={title:"Good Vibes Grand Prix",text:"First Annual Good Vibes Grand Prix, Aug 29 at Phoenixville VFW Post 1564. 21+, benefiting Mom's House Phoenixville.",url:"https://goodvibesgrandprix.com"};
-  if(navigator.share){navigator.share(data).catch(()=>{});}
-  else{copyRaceLink(document.querySelector('.share-row .share-btn:last-child'));}
-}
-function copyRaceLink(btn){
-  navigator.clipboard.writeText("https://goodvibesgrandprix.com").then(()=>{
-    if(!btn)return;
-    const orig=btn.textContent;
-    btn.textContent="✅ Copied!";
-    setTimeout(()=>btn.textContent=orig,1800);
-  });
 }
 const target=new Date('2026-08-29T19:00:00-04:00').getTime();
 const dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s'),note=document.getElementById('cd-note');
