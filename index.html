@@ -4,29 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Good Vibes Grand Prix: Charity Race Night · Phoenixville VFW Post 1564</title>
-<meta name="description" content="Phoenixville VFW Post 1564 presents the World Famous Good Vibes Grand Prix, a cheeky charity race night at Phoenixville VFW Post 1564, Phoenixville PA. Saturday August 29, 2026. Gates 6PM, races 7PM. 21+. Benefiting Mom's House Phoenixville.">
+<meta name="description" content="Phoenixville VFW Post 1564 presents the World Famous Good Vibes Grand Prix, a cheeky 21+ charity race night at Phoenixville VFW Post 1564, Phoenixville PA. Coming the night before Valentine's Day. Benefiting Mom's House Phoenixville.">
 <meta property="og:title" content="Good Vibes Grand Prix: Charity Race Night">
-<meta property="og:description" content="Aug 29, 2026 · Phoenixville VFW Post 1564 · 21+ · Benefiting Mom's House Phoenixville. Presented by Phoenixville VFW Post 1564.">
+<meta property="og:description" content="The night before Valentine's Day · Phoenixville VFW Post 1564 · 21+ · Benefiting Mom's House Phoenixville. Date announcement coming soon.">
 <meta property="og:image" content="https://goodvibesgrandprix.com/assets/poster.jpg">
 <meta property="og:url" content="https://goodvibesgrandprix.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Good Vibes Grand Prix: Charity Race Night">
-<meta name="twitter:description" content="Aug 29, 2026 · Phoenixville VFW Post 1564 · 21+ · Benefiting Mom's House Phoenixville">
+<meta name="twitter:description" content="The night before Valentine's Day · Phoenixville VFW Post 1564 · 21+ · Benefiting Mom's House Phoenixville">
 <meta name="twitter:image" content="https://goodvibesgrandprix.com/assets/poster.jpg">
 <meta name="theme-color" content="#001830">
+<!-- NOTE: Event schema removed while the date is unannounced. schema.org/Event REQUIRES startDate,
+     so a dateless Event block would be invalid structured data. Restore the Event JSON-LD (with
+     startDate/endDate/doorTime) at the date reveal. Organization schema below is valid meanwhile. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Good Vibes Grand Prix: First Annual",
-  "description": "Phoenixville VFW Post 1564 presents the World Famous Good Vibes Grand Prix, a cheeky 21+ charity race night at Phoenixville VFW Post 1564. Novelty racers, live auctions, thrills & prizes. 100% of net proceeds benefit Mom's House of Phoenixville.",
-  "startDate": "2026-08-29T19:00:00-04:00",
-  "endDate": "2026-08-29T23:00:00-04:00",
-  "doorTime": "2026-08-29T18:00:00-04:00",
-  "eventStatus": "https://schema.org/EventScheduled",
-  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-  "typicalAgeRange": "21-",
+  "@type": "Organization",
+  "name": "Good Vibes Grand Prix",
+  "description": "Phoenixville VFW Post 1564 presents the World Famous Good Vibes Grand Prix, a cheeky 21+ charity race night. Novelty racers, live auctions, thrills & prizes. 100% of net proceeds benefit Mom's House of Phoenixville.",
   "image": "https://goodvibesgrandprix.com/assets/poster.jpg",
   "url": "https://goodvibesgrandprix.com",
   "location": {
@@ -41,7 +38,7 @@
       "addressCountry": "US"
     }
   },
-  "organizer": {
+  "parentOrganization": {
     "@type": "Organization",
     "name": "Phoenixville VFW Post 1564 (Ettinger-Powers-Campbell)"
   }
@@ -121,6 +118,12 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(0,10,24,.9);backdrop
 .hero h1 .vibes{color:var(--orange);display:block}
 .hero-tag{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:clamp(.95rem,2vw,1.15rem);margin:18px 0 6px;color:var(--cream)}
 .countdown{display:flex;gap:10px;margin:20px 0 8px;justify-content:flex-start}
+.date-tease{display:flex;align-items:center;gap:16px;margin:22px 0 10px;background:linear-gradient(135deg,rgba(192,24,0,.28),rgba(0,0,0,.3));border:1px solid rgba(240,216,168,.22);border-left:4px solid var(--red);border-radius:8px;padding:16px 22px;max-width:440px}
+@media(max-width:900px){.date-tease{margin-left:auto;margin-right:auto;justify-content:center;text-align:left}}
+.date-tease .dt-heart{font-size:2.2rem;line-height:1;color:var(--red);text-shadow:0 0 14px rgba(192,24,0,.6);flex-shrink:0}
+.date-tease .dt-line{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:1.35rem;line-height:1.05;color:var(--cream-2);letter-spacing:.5px}
+.date-tease .dt-sub{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.68rem;color:var(--gold);opacity:.9;margin-top:5px}
+@media(max-width:420px){.date-tease{padding:14px 16px;gap:12px}.date-tease .dt-line{font-size:1.12rem}.date-tease .dt-heart{font-size:1.8rem}}
 @media(max-width:900px){.countdown{justify-content:center}}
 .cd-cell{background:rgba(0,0,0,.4);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:4px;padding:10px 14px;min-width:74px;text-align:center}
 .cd-cell .n{font-family:'Anton',sans-serif;font-size:2rem;line-height:1;color:var(--cream-2)}
@@ -393,15 +396,15 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
       <h1 class="sr-only">World Famous Good Vibes Grand Prix</h1>
       <div class="sign-stage"><img class="hero-logo" src="assets/logo.webp" alt="" aria-hidden="true"></div>
       <p class="hero-tag">Thrills &amp; Prizes · A Charity Race Night at Phoenixville VFW Post 1564</p>
-      <div class="countdown" id="countdown" aria-label="Countdown to race night">
-        <div class="cd-cell"><div class="n" id="cd-d">0</div><div class="l">Days</div></div>
-        <div class="cd-cell"><div class="n" id="cd-h">0</div><div class="l">Hours</div></div>
-        <div class="cd-cell"><div class="n" id="cd-m">0</div><div class="l">Min</div></div>
-        <div class="cd-cell"><div class="n" id="cd-s">0</div><div class="l">Sec</div></div>
+      <div class="date-tease" id="date-tease">
+        <div class="dt-heart" aria-hidden="true">♥</div>
+        <div class="dt-copy">
+          <div class="dt-line">The Night Before Valentine's Day</div>
+          <div class="dt-sub">Date announcement coming soon</div>
+        </div>
       </div>
-      <div class="cd-note" id="cd-note">Until the green flag drops</div>
       <div class="hero-facts">
-        <div class="fact"><div class="k">AUG 29</div><div class="l">Saturday 2026</div></div>
+        <div class="fact"><div class="k">SOON</div><div class="l">Date TBA</div></div>
         <div class="fact"><div class="k">6 PM</div><div class="l">Gates Open</div></div>
         <div class="fact"><div class="k">7 PM</div><div class="l">Races Start</div></div>
         <div class="fact"><div class="k">21+</div><div class="l">ID Required</div></div>
@@ -414,7 +417,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
     </div>
     <div class="hero-poster">
       <span class="poster-pin" aria-hidden="true"></span>
-      <img src="assets/poster.jpg" alt="Good Vibes Grand Prix vintage race poster: a patriotic rubber duck driving a gold race car, August 29 at Phoenixville VFW Post 1564, benefiting Mom's House Phoenixville.">
+      <img src="assets/poster.jpg" alt="Good Vibes Grand Prix vintage race poster: a patriotic rubber duck driving a gold race car at Phoenixville VFW Post 1564, benefiting Mom's House Phoenixville.">
     </div>
   </div>
 </section>
@@ -544,15 +547,12 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
     <div class="detail-grid">
       <div class="card">
         <h3>When</h3>
-        <p class="big">Saturday, August 29, 2026</p>
-        <p>Gates open <strong>6:00 PM</strong></p>
+        <p class="big">The Night Before Valentine's Day</p>
+        <p style="opacity:.8">Exact date announced soon. Join the list below and you'll hear it first.</p>
+        <p style="margin-top:10px">Gates open <strong>6:00 PM</strong></p>
         <p>Races start <strong>7:00 PM</strong></p>
         <p style="margin-top:10px"><strong>$10 admission</strong> at the door · cash only</p>
         <p style="margin-top:14px"><span class="pill">21+ · ID Required</span></p>
-        <div class="cal-links" style="justify-content:flex-start">
-          <a href="good-vibes-grand-prix.ics" download>📅 Apple / Outlook</a>
-          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Good+Vibes+Grand+Prix&dates=20260829T220000Z/20260830T030000Z&details=First+Annual+Good+Vibes+Grand+Prix+%E2%80%94+charity+race+night+at+Phoenixville+VFW+Post+1564.+21%2B.+Benefiting+Mom%27s+House+Phoenixville.+goodvibesgrandprix.com&location=Phoenixville+VFW+Post+1564%2C+200+Starr+St%2C+Phoenixville%2C+PA+19460" target="_blank" rel="noopener">📅 Google Calendar</a>
-        </div>
       </div>
       <div class="card">
         <h3>Where</h3>
@@ -685,11 +685,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--orange-hi);outline-
       <span class="pill">Tickets Coming Soon</span>
       <p>We're finalizing ticketing now. Be first in line when they drop:</p>
       <a id="notify-btn" class="btn btn-primary" href="#" target="_blank" rel="noopener">🔔 Notify Me When Tickets Drop</a>
-      <p style="opacity:.7;font-size:.9rem;margin-top:14px">Or lock in the date right now:</p>
-      <div class="cal-links">
-        <a href="good-vibes-grand-prix.ics" download>📅 Apple / Outlook</a>
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Good+Vibes+Grand+Prix&dates=20260829T220000Z/20260830T030000Z&details=First+Annual+Good+Vibes+Grand+Prix+%E2%80%94+charity+race+night+at+Phoenixville+VFW+Post+1564.+21%2B.+Benefiting+Mom%27s+House+Phoenixville.+goodvibesgrandprix.com&location=Phoenixville+VFW+Post+1564%2C+200+Starr+St%2C+Phoenixville%2C+PA+19460" target="_blank" rel="noopener">📅 Google Calendar</a>
-      </div>
+      <p style="opacity:.7;font-size:.9rem;margin-top:14px">We'll announce the date and drop tickets at the same time. Get on the list and you'll know before anyone else.</p>
     </div>
   </div>
 </section>
@@ -722,29 +718,16 @@ const nb=document.getElementById('notify-btn');
 if(TALLY_URL){nb.href=TALLY_URL;nb.classList.add('ready');}
 const spBtn=document.getElementById('sponsor-btn');
 if(SPONSOR_EMAIL){
-  spBtn.href=`mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent('Sponsoring the Good Vibes Grand Prix')}&body=${encodeURIComponent("Hi! I'd like to talk about sponsoring the Good Vibes Grand Prix on August 29. Here's a bit about our business:\n\n")}`;
+  spBtn.href=`mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent('Sponsoring the Good Vibes Grand Prix')}&body=${encodeURIComponent("Hi! I'd like to talk about sponsoring the Good Vibes Grand Prix. Here's a bit about our business:\n\n")}`;
 }
 // tier "pick" buttons: prefill the email with the chosen tier when an address is set,
 // otherwise fall through to the #reserve anchor already in the href.
 if(SPONSOR_EMAIL){
   document.querySelectorAll('.sponsor-pick').forEach(a=>{
     const tier=a.getAttribute('data-tier')||'a sponsorship';
-    a.href=`mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent('Sponsoring the Good Vibes Grand Prix: '+tier)}&body=${encodeURIComponent("Hi! I'd like to sponsor the Good Vibes Grand Prix on August 29 at the "+tier+" level. Here's a bit about our business:\n\n")}`;
+    a.href=`mailto:${SPONSOR_EMAIL}?subject=${encodeURIComponent('Sponsoring the Good Vibes Grand Prix: '+tier)}&body=${encodeURIComponent("Hi! I'd like to sponsor the Good Vibes Grand Prix at the "+tier+" level. Here's a bit about our business:\n\n")}`;
   });
 }
-const target=new Date('2026-08-29T19:00:00-04:00').getTime();
-const dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s'),note=document.getElementById('cd-note');
-function pad(n){return String(n).padStart(2,'0')}
-function tick(){
-  const diff=target-Date.now();
-  if(diff<=0){dEl.textContent='0';hEl.textContent='00';mEl.textContent='00';sEl.textContent='00';note.textContent='They\u2019re off! Race night is here.';return}
-  dEl.textContent=Math.floor(diff/86400000);
-  hEl.textContent=pad(Math.floor(diff%86400000/3600000));
-  mEl.textContent=pad(Math.floor(diff%3600000/60000));
-  sEl.textContent=pad(Math.floor(diff%60000/1000));
-  sEl.classList.remove('flip');void sEl.offsetWidth;sEl.classList.add('flip');
-}
-tick();setInterval(tick,1000);
 const glow=document.getElementById('bg-glow');
 const car=document.getElementById('race-car');
 function onScroll(){const p=window.scrollY/(document.body.scrollHeight-window.innerHeight||1);glow.style.setProperty('--glow-y',(10+p*80).toFixed(1)+'%');car.style.setProperty('--race-x',Math.min(1,Math.max(0,p)).toFixed(4));}
