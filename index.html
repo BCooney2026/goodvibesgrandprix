@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Vibes Grand Prix | Feel the Love</title>
+<meta name="description" content="Something good is coming. Phoenixville is about to feel the love. A Valentine's weekend event benefiting Mom's House Phoenixville.">
+<link rel="canonical" href="https://goodvibesgrandprix.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Good Vibes Grand Prix | Feel the Love">
+<meta property="og:description" content="Something good is coming. Phoenixville is about to feel the love. A Valentine's weekend event benefiting Mom's House Phoenixville.">
+<meta property="og:url" content="https://goodvibesgrandprix.com/">
+<meta property="og:image" content="https://goodvibesgrandprix.com/assets/teaser.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://goodvibesgrandprix.com/assets/teaser.webp">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preload" as="image" href="assets/teaser.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#050507;
+  --neon:#FF1F45;
+  --neon-soft:#C4123A;
+  --cream:#E8D6B8;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--ink);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+  padding:24px 16px 40px;
+  font-family:'Oswald',system-ui,sans-serif;
+  overflow-x:hidden;
+}
+/* ambient red wash behind the poster, breathes with it */
+.stage{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-width:100%;
+  overflow:hidden;
+  padding:6% 0;
+}
+.stage::before{
+  content:"";
+  position:absolute;
+  inset:-8%;
+  background:radial-gradient(ellipse at center, rgba(255,31,69,.20), rgba(255,31,69,0) 65%);
+  opacity:0;
+  animation:washOn 2.2s ease-out .15s forwards, washBreathe 5.5s ease-in-out 2.6s infinite;
+  pointer-events:none;
+  z-index:0;
+}
+.poster{
+  position:relative;
+  z-index:1;
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:min(660px, 92vw);
+  max-height:88vh;
+  border-radius:3px;
+  /* start dark and flat; the strike-on brings it up */
+  filter:brightness(.06) saturate(.4) contrast(1.05);
+  opacity:.35;
+  animation:strikeOn 1.9s cubic-bezier(.4,0,.2,1) .15s forwards, breathe 5.5s ease-in-out 2.6s infinite;
+  will-change:filter,opacity;
+}
+/* neon tube catching: dark, stutter, stutter, settle */
+@keyframes strikeOn{
+  0%   {filter:brightness(.06) saturate(.4)  contrast(1.05); opacity:.35}
+  14%  {filter:brightness(.85) saturate(1.15) contrast(1.06); opacity:1}
+  20%  {filter:brightness(.10) saturate(.45) contrast(1.05); opacity:.45}
+  30%  {filter:brightness(1.06) saturate(1.2) contrast(1.06); opacity:1}
+  36%  {filter:brightness(.22) saturate(.6)  contrast(1.05); opacity:.6}
+  46%  {filter:brightness(.95) saturate(1.1) contrast(1.05); opacity:1}
+  52%  {filter:brightness(.55) saturate(.9)  contrast(1.04); opacity:.85}
+  70%  {filter:brightness(1.03) saturate(1.06) contrast(1.03); opacity:1}
+  100% {filter:brightness(1)   saturate(1)   contrast(1);    opacity:1}
+}
+/* the glow breathes; the geometry never moves */
+@keyframes breathe{
+  0%,100%{filter:brightness(1)    saturate(1)}
+  50%    {filter:brightness(1.07) saturate(1.09)}
+}
+@keyframes washOn{ to{opacity:1} }
+@keyframes washBreathe{
+  0%,100%{opacity:.75}
+  50%    {opacity:1}
+}
+/* CTA */
+.cta{
+  position:relative;
+  z-index:1;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-weight:700;
+  font-size:clamp(.95rem,2.4vw,1.1rem);
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--cream);
+  background:transparent;
+  border:2px solid var(--neon);
+  border-radius:2px;
+  padding:15px 32px;
+  box-shadow:0 0 12px rgba(255,31,69,.5), inset 0 0 12px rgba(255,31,69,.22);
+  text-shadow:0 0 8px rgba(255,31,69,.45);
+  opacity:0;
+  animation:ctaIn .9s ease-out 2.4s forwards;
+  transition:background .25s ease, box-shadow .25s ease, color .25s ease;
+}
+.cta:hover,.cta:focus-visible{
+  background:rgba(255,31,69,.14);
+  color:#fff;
+  box-shadow:0 0 22px rgba(255,31,69,.85), inset 0 0 18px rgba(255,31,69,.32);
+  outline:none;
+}
+.cta svg{width:20px;height:20px;flex:none;stroke:var(--neon);fill:none;stroke-width:1.8}
+@keyframes ctaIn{ to{opacity:1} }
+.foot{
+  position:relative;
+  z-index:1;
+  margin:0;
+  font-size:.68rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:rgba(232,214,184,.34);
+  text-align:center;
+  opacity:0;
+  animation:ctaIn .9s ease-out 2.8s forwards;
+}
+/* respect reduced motion: no flicker, no breathe, just present */
+@media (prefers-reduced-motion: reduce){
+  .poster{
+    filter:none;opacity:1;animation:none;
+  }
+  .stage::before{opacity:1;animation:none}
+  .cta,.foot{opacity:1;animation:none}
+}
+</style>
+</head>
+<body>
+
+  <main class="stage">
+    <img class="poster" src="assets/teaser.webp" width="1086" height="1448"
+         alt="Good Vibes Grand Prix: Something good is coming. Phoenixville is about to feel the love. A Valentine's weekend event benefiting Mom's House Phoenixville.">
+  </main>
+
+  <a class="cta" href="https://tally.so/r/7R5A00" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+    Get on the List
+  </a>
+
+  <p class="foot">Thrills &middot; Laughs &middot; Good Vibes &middot; For a Great Cause</p>
+
+</body>
+</html>
