@@ -114,25 +114,64 @@ body.powered .poster{
   0%,100%{opacity:.82}
   50%{opacity:.92}
 }
-.cta{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  font-weight:700;
-  font-size:1rem;
-  letter-spacing:2.5px;
-  text-transform:uppercase;
-  text-decoration:none;
-  color:var(--cream);
-  border:2px solid var(--neon);
-  border-radius:2px;
-  padding:15px 32px;
-  box-shadow:0 0 12px rgba(255,31,69,.5), inset 0 0 12px rgba(255,31,69,.22);
-  text-shadow:0 0 8px rgba(255,31,69,.45);
+.capture{
+  width:min(660px, 92vw);
+  margin-top:-4px;
+  padding:34px 22px 18px;
+  text-align:center;
   opacity:0;
+  transform:translateY(12px);
 }
-body.powered .cta{animation:ctaIn .7s ease-out 5.77s forwards}
-.cta svg{width:20px;height:20px;flex:none;stroke:var(--neon);fill:none;stroke-width:1.8}
+body.powered .capture{animation:captureIn 1.05s ease-out 5.95s forwards}
+.capture::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  width:min(560px,80vw);
+  height:220px;
+  transform:translate(-50%,-45px);
+  background:radial-gradient(ellipse at center,rgba(255,31,69,.12),rgba(255,31,69,0) 68%);
+  pointer-events:none;
+  filter:blur(8px);
+}
+.capture h2{
+  position:relative;
+  margin:0;
+  color:var(--cream);
+  font-size:clamp(1.45rem,4vw,2.35rem);
+  line-height:1.05;
+  letter-spacing:clamp(2px,.6vw,5px);
+  text-transform:uppercase;
+  text-shadow:0 0 16px rgba(255,31,69,.32);
+}
+.capture-copy{
+  position:relative;
+  margin:12px auto 18px;
+  color:rgba(232,214,184,.70);
+  font-size:.95rem;
+  line-height:1.55;
+}
+.tally-shell{
+  position:relative;
+  width:100%;
+  max-width:560px;
+  margin:0 auto;
+  overflow:hidden;
+}
+.tally-shell iframe{
+  display:block;
+  width:100%;
+  min-height:330px;
+  border:0;
+}
+.capture-note{
+  position:relative;
+  margin:10px 0 0;
+  color:rgba(232,214,184,.40);
+  font-size:.72rem;
+  font-style:italic;
+  letter-spacing:.7px;
+}
 .foot{
   margin:0;
   font-size:.68rem;
@@ -142,8 +181,8 @@ body.powered .cta{animation:ctaIn .7s ease-out 5.77s forwards}
   text-align:center;
   opacity:0;
 }
-body.powered .foot{animation:ctaIn .7s ease-out 6.02s forwards}
-@keyframes ctaIn{to{opacity:1}}
+body.powered .foot{animation:captureIn .7s ease-out 6.45s forwards}
+@keyframes captureIn{to{opacity:1;transform:translateY(0)}}
 
 .curtain-wrap{
   position:fixed;
@@ -366,10 +405,25 @@ body.powered .replay{opacity:.7;pointer-events:auto}
          alt="Good Vibes Grand Prix teaser poster">
   </main>
 
-  <a class="cta" href="#" onclick="return false;">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-    Get on the List
-  </a>
+  <section class="capture" aria-labelledby="capture-title">
+    <h2 id="capture-title">You Felt That Too?</h2>
+    <p class="capture-copy">Good. Leave your email.<br>We&rsquo;ll tell you when it&rsquo;s time.</p>
+
+    <div class="tally-shell">
+      <iframe
+        data-tally-src="https://tally.so/embed/7R5A00?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="330"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Good Vibes Grand Prix ticket alert">
+      </iframe>
+    </div>
+
+    <p class="capture-note">No spam. No spoilers. Just good vibes.</p>
+  </section>
 
   <p class="foot">Thrills &middot; Laughs &middot; Good Vibes &middot; For a Great Cause</p>
 
@@ -397,6 +451,8 @@ body.powered .replay{opacity:.7;pointer-events:auto}
   </div>
 
   <button class="replay" id="replay" type="button">Replay reveal</button>
+
+<script src="https://tally.so/widgets/embed.js"></script>
 
 <script>
 (() => {
