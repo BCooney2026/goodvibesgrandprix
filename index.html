@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Good Vibes Grand Prix | Voltage Timing Preview</title>
+<title>Good Vibes Grand Prix | Curtain Reveal Preview v6</title>
 <style>
 :root{
   --ink:#050507;
   --neon:#FF1F45;
-  --neon-soft:#C4123A;
   --cream:#E8D6B8;
 }
 *{box-sizing:border-box}
@@ -31,7 +30,6 @@ body{
   align-items:center;
   justify-content:center;
   width:100%;
-  max-width:100%;
   overflow:hidden;
   padding:6% 0;
 }
@@ -41,11 +39,11 @@ body{
   inset:-8%;
   background:radial-gradient(ellipse at center, rgba(255,31,69,.20), rgba(255,31,69,0) 65%);
   opacity:0;
-  animation:
-    washVoltage 5.6s linear .18s forwards,
-    washBreathe 6.5s ease-in-out 6s infinite;
   pointer-events:none;
   z-index:0;
+}
+body.powered .stage::before{
+  animation:washVoltage 5.6s linear forwards, washBreathe 6.5s ease-in-out 5.82s infinite;
 }
 .poster{
   position:relative;
@@ -58,130 +56,56 @@ body{
   border-radius:3px;
   filter:brightness(.025) saturate(.15) contrast(1.12);
   opacity:.18;
-  animation:
-    voltageOn 5.6s linear .18s forwards,
-    breathe 6.5s ease-in-out 6s infinite;
   will-change:filter,opacity;
 }
-
+body.powered .poster{
+  animation:voltageOn 5.6s linear forwards, breathe 6.5s ease-in-out 5.82s infinite;
+}
 @keyframes voltageOn{
-  0%, 14% {
-    filter:brightness(.025) saturate(.15) contrast(1.12);
-    opacity:.18;
-  }
-
-  /* first weak catch: power arrives, chatters, then starves */
-  18% {
-    filter:brightness(.32) saturate(.72) contrast(1.10);
-    opacity:.58;
-  }
-  18.8% {
-    filter:brightness(.17) saturate(.48) contrast(1.10);
-    opacity:.42;
-  }
-  19.6% {
-    filter:brightness(.38) saturate(.80) contrast(1.09);
-    opacity:.64;
-  }
-  22% {
-    filter:brightness(.11) saturate(.34) contrast(1.11);
-    opacity:.34;
-  }
-  31% {
-    filter:brightness(.065) saturate(.25) contrast(1.12);
-    opacity:.28;
-  }
-
-  /* second attempt: stronger load, a rough sag instead of an instant blink */
-  39% {
-    filter:brightness(.72) saturate(1.00) contrast(1.07);
-    opacity:.92;
-  }
-  40.5% {
-    filter:brightness(.57) saturate(.88) contrast(1.08);
-    opacity:.82;
-  }
-  42% {
-    filter:brightness(.76) saturate(1.04) contrast(1.06);
-    opacity:.95;
-  }
-  46% {
-    filter:brightness(.27) saturate(.58) contrast(1.10);
-    opacity:.56;
-  }
-
-  /* the supply strains upward under load */
-  56% {
-    filter:brightness(.58) saturate(.90) contrast(1.07);
-    opacity:.83;
-  }
-  63% {
-    filter:brightness(.86) saturate(1.08) contrast(1.05);
-    opacity:1;
-  }
-  67% {
-    filter:brightness(.53) saturate(.84) contrast(1.07);
-    opacity:.79;
-  }
-  73% {
-    filter:brightness(.94) saturate(1.12) contrast(1.04);
-    opacity:1;
-  }
-  78% {
-    filter:brightness(.70) saturate(.98) contrast(1.06);
-    opacity:.90;
-  }
-  83% {
-    filter:brightness(1.06) saturate(1.16) contrast(1.03);
-    opacity:1;
-  }
-
-  /* it almost dies — then the system finally catches */
-  86% {
-    filter:brightness(.38) saturate(.68) contrast(1.09);
-    opacity:.64;
-  }
-  89% {
-    filter:brightness(.12) saturate(.36) contrast(1.11);
-    opacity:.38;
-  }
-  91.5% {
-    filter:brightness(1.14) saturate(1.22) contrast(1.02);
-    opacity:1;
-  }
-  95% {
-    filter:brightness(1.04) saturate(1.08) contrast(1.02);
-    opacity:1;
-  }
-  100% {
-    filter:brightness(1) saturate(1) contrast(1);
-    opacity:1;
-  }
+  0%,14%{filter:brightness(.025) saturate(.15) contrast(1.12);opacity:.18}
+  18%{filter:brightness(.32) saturate(.72) contrast(1.10);opacity:.58}
+  18.8%{filter:brightness(.17) saturate(.48) contrast(1.10);opacity:.42}
+  19.6%{filter:brightness(.38) saturate(.80) contrast(1.09);opacity:.64}
+  22%{filter:brightness(.11) saturate(.34) contrast(1.11);opacity:.34}
+  31%{filter:brightness(.065) saturate(.25) contrast(1.12);opacity:.28}
+  39%{filter:brightness(.72) saturate(1.00) contrast(1.07);opacity:.92}
+  40.5%{filter:brightness(.57) saturate(.88) contrast(1.08);opacity:.82}
+  42%{filter:brightness(.76) saturate(1.04) contrast(1.06);opacity:.95}
+  46%{filter:brightness(.27) saturate(.58) contrast(1.10);opacity:.56}
+  56%{filter:brightness(.58) saturate(.90) contrast(1.07);opacity:.83}
+  63%{filter:brightness(.86) saturate(1.08) contrast(1.05);opacity:1}
+  67%{filter:brightness(.53) saturate(.84) contrast(1.07);opacity:.79}
+  73%{filter:brightness(.94) saturate(1.12) contrast(1.04);opacity:1}
+  78%{filter:brightness(.70) saturate(.98) contrast(1.06);opacity:.90}
+  83%{filter:brightness(1.06) saturate(1.16) contrast(1.03);opacity:1}
+  86%{filter:brightness(.38) saturate(.68) contrast(1.09);opacity:.64}
+  89%{filter:brightness(.12) saturate(.36) contrast(1.11);opacity:.38}
+  91.5%{filter:brightness(1.14) saturate(1.22) contrast(1.02);opacity:1}
+  95%{filter:brightness(1.04) saturate(1.08) contrast(1.02);opacity:1}
+  100%{filter:brightness(1) saturate(1) contrast(1);opacity:1}
 }
-
 @keyframes washVoltage{
-  0%,14% {opacity:0}
-  18% {opacity:.18}
-  18.8% {opacity:.07}
-  19.6% {opacity:.23}
-  22% {opacity:.04}
-  31% {opacity:.02}
-  39% {opacity:.55}
-  40.5% {opacity:.39}
-  42% {opacity:.62}
-  46% {opacity:.15}
-  56% {opacity:.38}
-  63% {opacity:.72}
-  67% {opacity:.43}
-  73% {opacity:.82}
-  78% {opacity:.58}
-  83% {opacity:1}
-  86% {opacity:.22}
-  89% {opacity:.05}
-  91.5% {opacity:1}
-  100% {opacity:.88}
+  0%,14%{opacity:0}
+  18%{opacity:.18}
+  18.8%{opacity:.07}
+  19.6%{opacity:.23}
+  22%{opacity:.04}
+  31%{opacity:.02}
+  39%{opacity:.55}
+  40.5%{opacity:.39}
+  42%{opacity:.62}
+  46%{opacity:.15}
+  56%{opacity:.38}
+  63%{opacity:.72}
+  67%{opacity:.43}
+  73%{opacity:.82}
+  78%{opacity:.58}
+  83%{opacity:1}
+  86%{opacity:.22}
+  89%{opacity:.05}
+  91.5%{opacity:1}
+  100%{opacity:.88}
 }
-
 @keyframes breathe{
   0%,100%{filter:brightness(1) saturate(1)}
   50%{filter:brightness(1.035) saturate(1.045)}
@@ -190,7 +114,6 @@ body{
   0%,100%{opacity:.82}
   50%{opacity:.92}
 }
-
 .cta{
   display:inline-flex;
   align-items:center;
@@ -207,8 +130,8 @@ body{
   box-shadow:0 0 12px rgba(255,31,69,.5), inset 0 0 12px rgba(255,31,69,.22);
   text-shadow:0 0 8px rgba(255,31,69,.45);
   opacity:0;
-  animation:ctaIn .7s ease-out 5.95s forwards;
 }
+body.powered .cta{animation:ctaIn .7s ease-out 5.77s forwards}
 .cta svg{width:20px;height:20px;flex:none;stroke:var(--neon);fill:none;stroke-width:1.8}
 .foot{
   margin:0;
@@ -218,22 +141,70 @@ body{
   color:rgba(232,214,184,.34);
   text-align:center;
   opacity:0;
-  animation:ctaIn .7s ease-out 6.2s forwards;
 }
+body.powered .foot{animation:ctaIn .7s ease-out 6.02s forwards}
 @keyframes ctaIn{to{opacity:1}}
 
-.replay{
+.curtain-wrap{
   position:fixed;
-  right:16px;
-  bottom:16px;
-  z-index:5;
-  border:1px solid rgba(232,214,184,.35);
-  background:#0b0b0f;
-  color:var(--cream);
-  padding:10px 14px;
+  inset:0;
+  z-index:100;
+  overflow:hidden;
   cursor:pointer;
-  letter-spacing:1px;
+  background:transparent;
 }
+.curtain-wrap.parked{
+  pointer-events:none;
+  cursor:default;
+}
+#curtainCanvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+.curtain-copy{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  text-align:center;
+  padding:24px;
+  pointer-events:none;
+  transition:opacity .32s ease, transform .5s ease;
+}
+.curtain-wrap.open .curtain-copy{
+  opacity:0;
+  transform:scale(.975);
+}
+.curtain-heart{
+  width:54px;height:48px;overflow:visible;
+  filter:drop-shadow(0 0 10px rgba(255,31,69,.65));
+  animation:heartPulse 2.2s ease-in-out infinite;
+}
+.curtain-heart path{
+  fill:none;stroke:var(--neon);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+}
+@keyframes heartPulse{
+  0%,100%{opacity:.65;transform:scale(.98)}
+  50%{opacity:1;transform:scale(1.045)}
+}
+.curtain-kicker{color:rgba(232,214,184,.56);font-size:.68rem;letter-spacing:4px;text-transform:uppercase}
+.curtain-title{color:var(--cream);font-size:clamp(1.05rem,3vw,1.45rem);font-weight:700;letter-spacing:4px;text-transform:uppercase;text-shadow:0 0 12px rgba(255,31,69,.35)}
+.curtain-hint{color:rgba(232,214,184,.36);font-size:.72rem;letter-spacing:2px;text-transform:uppercase}
+.replay{
+  position:fixed;right:16px;bottom:16px;z-index:150;
+  border:1px solid rgba(232,214,184,.35);background:#0b0b0f;color:var(--cream);
+  padding:10px 14px;cursor:pointer;letter-spacing:1px;
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+body.powered .replay{opacity:.7;pointer-events:auto}
+.replay:hover{opacity:1}
 </style>
 </head>
 <body>
@@ -250,6 +221,225 @@ body{
   </a>
 
   <p class="foot">Thrills &middot; Laughs &middot; Good Vibes &middot; For a Great Cause</p>
-  <button class="replay" type="button" onclick="location.reload()">Replay</button>
+
+  <div class="curtain-wrap" id="curtain" role="button" tabindex="0" aria-label="Pull back the curtain">
+    <canvas id="curtainCanvas"></canvas>
+    <div class="curtain-copy">
+      <svg class="curtain-heart" viewBox="0 0 64 56" aria-hidden="true">
+        <path d="M32 50S6 35 6 17C6 8 12 3 20 3c5 0 10 3 12 8 2-5 7-8 12-8 8 0 14 5 14 14 0 18-26 33-26 33Z"/>
+      </svg>
+      <div class="curtain-kicker">Something good is coming</div>
+      <div class="curtain-title">Pull Back the Curtain</div>
+      <div class="curtain-hint">Tap anywhere</div>
+    </div>
+  </div>
+
+  <button class="replay" id="replay" type="button">Replay reveal</button>
+
+<script>
+(() => {
+  const curtain = document.getElementById('curtain');
+  const canvas = document.getElementById('curtainCanvas');
+  const ctx = canvas.getContext('2d');
+  const replay = document.getElementById('replay');
+
+  let dpr = 1;
+  let w = 0;
+  let h = 0;
+  let panelW = 0;
+  let texL, texR;
+  let raf = 0;
+  let running = false;
+  let startTime = 0;
+  let parkedElapsed = 0;
+
+  const OPEN_MS = 2100;
+  const STRIPS = 180;
+  const BOTTOM_LAG_MS = 360;
+  const STACK_RATIO = .105;
+  const FINAL_ELAPSED = OPEN_MS + BOTTOM_LAG_MS + 120;
+
+  function clamp01(v) {
+    return Math.max(0, Math.min(1, v));
+  }
+
+  function easeInOutQuint(t) {
+    t = clamp01(t);
+    return t < .5
+      ? 16 * t * t * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 5) / 2;
+  }
+
+  function makeTexture(width, height, mirror=false) {
+    const c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(width));
+    c.height = Math.max(1, Math.round(height));
+    const g = c.getContext('2d');
+
+    const base = g.createLinearGradient(0, 0, 0, c.height);
+    base.addColorStop(0, '#77132a');
+    base.addColorStop(.32, '#570a1d');
+    base.addColorStop(.72, '#340510');
+    base.addColorStop(1, '#180106');
+    g.fillStyle = base;
+    g.fillRect(0, 0, c.width, c.height);
+
+    for (let x = 0; x < c.width; x++) {
+      const nx = x / Math.max(1, c.width);
+      const q = mirror ? 1 - nx : nx;
+      const broad = Math.sin(q * Math.PI * 7.2 + .15);
+      const shoulder = Math.sin(q * Math.PI * 14.4 + 1.0) * .24;
+      const shape = broad + shoulder;
+      const a = Math.min(.18, .045 + Math.abs(shape) * .10);
+
+      g.fillStyle = shape >= 0
+        ? `rgba(255,198,207,${a})`
+        : `rgba(0,0,0,${a * 1.7})`;
+      g.fillRect(x, 0, 1, c.height);
+    }
+
+    const top = g.createRadialGradient(c.width*.5, -c.height*.03, 0, c.width*.5, 0, c.width*.9);
+    top.addColorStop(0, 'rgba(255,255,255,.10)');
+    top.addColorStop(1, 'rgba(255,255,255,0)');
+    g.fillStyle = top;
+    g.fillRect(0, 0, c.width, c.height*.5);
+
+    const hem = g.createLinearGradient(0, c.height*.65, 0, c.height);
+    hem.addColorStop(0, 'rgba(0,0,0,0)');
+    hem.addColorStop(1, 'rgba(0,0,0,.54)');
+    g.fillStyle = hem;
+    g.fillRect(0, c.height*.65, c.width, c.height*.35);
+
+    return c;
+  }
+
+  function sizeCanvas() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth;
+    h = window.innerHeight;
+    panelW = w / 2;
+
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    texL = makeTexture(panelW, h, false);
+    texR = makeTexture(panelW, h, true);
+    drawCurtains(curtain.classList.contains('parked') ? parkedElapsed : 0);
+  }
+
+  function localProgress(elapsed, yNorm) {
+    const lag = BOTTOM_LAG_MS * Math.pow(yNorm, 2.15);
+    return easeInOutQuint((elapsed - lag) / OPEN_MS);
+  }
+
+  function innerEdge(side, p, yNorm) {
+    const stackW = panelW * STACK_RATIO;
+    const closedEdge = w / 2;
+    const openEdge = side === 'left' ? stackW : w - stackW;
+
+    let edge = closedEdge + (openEdge - closedEdge) * p;
+
+    const travel = Math.sin(Math.PI * p);
+    const flow =
+      Math.sin(yNorm * Math.PI * 1.15 - p * 1.7) * 13 +
+      Math.sin(yNorm * Math.PI * 2.25 - p * 2.6 + .7) * 4;
+
+    edge += (side === 'left' ? 1 : -1) * flow * travel;
+    edge += (side === 'left' ? 1 : -1) * (Math.pow(yNorm, 3) * 8 * travel);
+
+    return edge;
+  }
+
+  function drawHalf(texture, side, elapsed) {
+    const sh = h / STRIPS + 1.25;
+
+    for (let i = 0; i < STRIPS; i++) {
+      const y = i * h / STRIPS;
+      const yn = i / (STRIPS - 1);
+      const p = localProgress(elapsed, yn);
+      const edge = innerEdge(side, p, yn);
+
+      const width = side === 'left' ? Math.max(1, edge) : Math.max(1, w - edge);
+      const dx = side === 'left' ? 0 : edge;
+
+      const sway = Math.sin(yn * Math.PI * 1.45 + p * Math.PI) * Math.sin(Math.PI * p) * 1.5;
+
+      ctx.drawImage(
+        texture,
+        0, Math.max(0, y + sway), texture.width, sh,
+        dx, y, width, sh
+      );
+    }
+  }
+
+  function drawCurtains(elapsed) {
+    // Transparent center means the finished poster remains visible between parked curtains.
+    ctx.clearRect(0,0,w,h);
+
+    drawHalf(texL, 'left', elapsed);
+    drawHalf(texR, 'right', elapsed);
+
+    const centerP = localProgress(elapsed, .42);
+    if (centerP < .15) {
+      ctx.save();
+      ctx.globalAlpha = (1 - centerP / .15) * .36;
+      const seam = ctx.createLinearGradient(w/2,0,w/2,h);
+      seam.addColorStop(0,'rgba(255,31,69,.04)');
+      seam.addColorStop(.42,'rgba(255,31,69,.34)');
+      seam.addColorStop(1,'rgba(255,31,69,.03)');
+      ctx.fillStyle = seam;
+      ctx.fillRect(w/2 - 1,0,2,h);
+      ctx.restore();
+    }
+  }
+
+  function frame(now) {
+    const elapsed = now - startTime;
+    drawCurtains(elapsed);
+
+    if (elapsed < FINAL_ELAPSED) {
+      raf = requestAnimationFrame(frame);
+      return;
+    }
+
+    parkedElapsed = FINAL_ELAPSED;
+    drawCurtains(parkedElapsed);
+    curtain.classList.add('parked');
+
+    window.setTimeout(() => document.body.classList.add('powered'), 330);
+  }
+
+  function reveal() {
+    if (running) return;
+    running = true;
+    curtain.classList.add('open');
+    curtain.classList.remove('parked');
+    startTime = performance.now();
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(frame);
+  }
+
+  function reset() {
+    document.body.classList.remove('powered');
+    running = false;
+    cancelAnimationFrame(raf);
+    curtain.classList.remove('open','parked');
+    drawCurtains(0);
+  }
+
+  curtain.addEventListener('click', reveal);
+  curtain.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      reveal();
+    }
+  });
+  replay.addEventListener('click', reset);
+  window.addEventListener('resize', sizeCanvas, {passive:true});
+
+  sizeCanvas();
+})();
+</script>
 </body>
 </html>
