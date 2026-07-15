@@ -395,6 +395,133 @@ body.powered .foot{animation:captureIn .7s ease-out 6.45s forwards}
 }
 body.powered .replay{opacity:.7;pointer-events:auto}
 .replay:hover{opacity:1}
+
+/* Sponsor doorway — isolated from poster, curtain, and Tally */
+.sponsor-door{
+  position:relative;
+  width:min(660px,92vw);
+  margin:10px auto 2px;
+  padding:38px 22px 30px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(12px);
+}
+body.powered .sponsor-door{animation:captureIn 1.05s ease-out 6.18s forwards}
+.sponsor-door::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:min(560px,80vw);
+  height:230px;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(ellipse at center,rgba(255,31,69,.13),rgba(255,31,69,0) 68%);
+  pointer-events:none;
+  filter:blur(10px);
+}
+.sponsor-door h2{
+  position:relative;
+  margin:0 auto;
+  max-width:620px;
+  color:var(--cream);
+  font-size:clamp(1.35rem,3.7vw,2.25rem);
+  line-height:1.08;
+  letter-spacing:clamp(1.5px,.48vw,4px);
+  text-transform:uppercase;
+  text-shadow:0 0 18px rgba(255,31,69,.34);
+}
+.sponsor-door p{
+  position:relative;
+  margin:13px auto 20px;
+  color:rgba(232,214,184,.62);
+  font-size:.94rem;
+  line-height:1.55;
+}
+.sponsor-door button{
+  position:relative;
+  border:1px solid rgba(255,31,69,.72);
+  background:rgba(255,31,69,.06);
+  color:var(--cream);
+  padding:14px 22px;
+  font:700 .78rem Arial,Helvetica,sans-serif;
+  letter-spacing:2.2px;
+  text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:0 0 0 rgba(255,31,69,0);
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.sponsor-door button:hover,
+.sponsor-door button:focus-visible{
+  transform:translateY(-2px);
+  background:rgba(255,31,69,.15);
+  box-shadow:0 0 24px rgba(255,31,69,.25);
+  outline:none;
+}
+.sponsor-modal{
+  position:fixed;
+  inset:0;
+  z-index:220;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(5,5,7,.88);
+  backdrop-filter:blur(8px);
+}
+.sponsor-modal.show{display:flex}
+.sponsor-card{
+  position:relative;
+  width:min(560px,94vw);
+  padding:42px 34px 36px;
+  border:1px solid rgba(255,31,69,.50);
+  background:#08080b;
+  text-align:center;
+  box-shadow:0 0 54px rgba(255,31,69,.18);
+}
+.sponsor-card .eyebrow{
+  margin:0 0 12px;
+  color:rgba(232,214,184,.42);
+  font-size:.66rem;
+  letter-spacing:4px;
+  text-transform:uppercase;
+}
+.sponsor-card h3{
+  margin:0;
+  color:var(--cream);
+  font-size:clamp(1.55rem,5vw,2.55rem);
+  line-height:1.05;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  text-shadow:0 0 18px rgba(255,31,69,.30);
+}
+.sponsor-card .modal-copy{
+  margin:18px auto 0;
+  max-width:440px;
+  color:rgba(232,214,184,.70);
+  font-size:.98rem;
+  line-height:1.65;
+}
+.sponsor-card .modal-note{
+  margin:22px 0 0;
+  color:var(--neon);
+  font-size:.72rem;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+.sponsor-close{
+  position:absolute;
+  top:12px;
+  right:14px;
+  border:0;
+  background:transparent;
+  color:rgba(232,214,184,.55);
+  font-size:1.7rem;
+  line-height:1;
+  cursor:pointer;
+}
+.sponsor-close:hover,
+.sponsor-close:focus-visible{color:var(--cream);outline:none}
+
 </style>
 </head>
 <body>
@@ -424,6 +551,24 @@ body.powered .replay{opacity:.7;pointer-events:auto}
 
     <p class="capture-note">No spam. No spoilers. Just good vibes.</p>
   </section>
+
+
+  <section class="sponsor-door" aria-labelledby="sponsor-door-title">
+    <h2 id="sponsor-door-title">Want Your Name on the Starting Line?</h2>
+    <p>Some get a ticket. Some help start the race.</p>
+    <button type="button" id="sponsorDoorButton">Put Me in the Room &rarr;</button>
+  </section>
+
+  <div class="sponsor-modal" id="sponsorModal" role="dialog" aria-modal="true" aria-labelledby="sponsor-modal-title">
+    <div class="sponsor-card">
+      <button class="sponsor-close" id="sponsorClose" type="button" aria-label="Close">&times;</button>
+      <p class="eyebrow">The Starting Line</p>
+      <h3 id="sponsor-modal-title">You Found the Other Door.</h3>
+      <p class="modal-copy">We&rsquo;re quietly putting a small group of local businesses and friends of Mom&rsquo;s House in the room before the full event reveal.</p>
+      <p class="modal-copy">If that sounds like you, stay close. We&rsquo;ll make the introduction soon.</p>
+      <p class="modal-note">No public pitch. No clutter. Just the right people.</p>
+    </div>
+  </div>
 
   <p class="foot">Thrills &middot; Laughs &middot; Good Vibes &middot; For a Great Cause</p>
 
@@ -739,5 +884,33 @@ body.powered .replay{opacity:.7;pointer-events:auto}
   sizeCanvas();
 })();
 </script>
+
+<script>
+(() => {
+  const sponsorButton = document.getElementById('sponsorDoorButton');
+  const sponsorModal = document.getElementById('sponsorModal');
+  const sponsorClose = document.getElementById('sponsorClose');
+  if (!sponsorButton || !sponsorModal || !sponsorClose) return;
+
+  const openSponsorDoor = () => {
+    sponsorModal.classList.add('show');
+    sponsorClose.focus();
+  };
+  const closeSponsorDoor = () => {
+    sponsorModal.classList.remove('show');
+    sponsorButton.focus();
+  };
+
+  sponsorButton.addEventListener('click', openSponsorDoor);
+  sponsorClose.addEventListener('click', closeSponsorDoor);
+  sponsorModal.addEventListener('click', event => {
+    if (event.target === sponsorModal) closeSponsorDoor();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && sponsorModal.classList.contains('show')) closeSponsorDoor();
+  });
+})();
+</script>
+
 </body>
 </html>
